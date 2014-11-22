@@ -1,0 +1,181 @@
+/*doc
+---
+title: Index Example
+category: Examples - Index
+---
+
+```html_example
+
+<body>
+<div class='container'>
+
+
+<header 
+    class='contrivers-header'
+    data-eq-pts='phone:0, tablet: 480, header: 650, window: 960' >
+    <div class='header-group__title' >
+        <a class='header-title' href="/">
+            Contrivers&#39; Review
+            
+        </a>
+    </div>
+    <div class='header-group__nav'>
+        <a href='/'>
+            <div class='header-tagline '>Theory, Politics, Criticism</div>
+        </a>
+        <nav 
+            class='nav navbar header-nav contriversNav'
+            data-eq-pts='mobile:0,epsilon:335' >
+            <ul>
+                <li class='nav-item__link'><a href="/articles/" >Articles</a></li>
+                <li class='nav-item__link'><a href="/reviews/">Reviews</a></li>
+                <li class='nav-item__link'><a href="/support/">Support</a></li> 
+                <li class='nav-item__link'><a href="/masthead/">Masthead</a></li>
+                <li class='nav-item__search'><a href='/search/'><i class="fa fa-search"></i></a></li>
+                <li class="nav-item__twitter"><a href="https://twitter.com/contriversrev" ><i class="fa fa-twitter-square"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div id='content' class='layout main-page'>
+    <div class='block' data-eq-pts="small: 0, medium: 400">
+        <div class='block-header'>
+        
+        <div class='block-header-button'><time datetime='2014-09-09T13:58'>September  9, 2014</time></div>
+        <div class='block-header-button__featured'><a href='/articles/featured/'>Featured</a></div>
+        <h2 class='article-title block-header-title'>
+            <a href="/reviews/6/">Seeing Like An App</a>
+        </h2>
+    <div class='block-header-authors-attribution'>
+    <span class='block-header-authors-attribution-by'>by</span>
+        <a class='block-header-authors-author' href="/authors/1/">Luke Thomas Mergner</a></div>
+    </div>
+    <div class='block-abstract'><p>Evgeny Morozov’s newest book is best read as marginalia rather than as any systematic contribution to a social theory of technology. It is a book very much of the moment, focused on challenging the mistakes of a narrow field of interlocutors, all of whom publish, like Morozov, on the fashionable topic of technology journalism. </p></div>
+</div>
+
+
+
+    
+    <div class='block' data-eq-pts="small: 0, medium: 400">
+  <div class='block-header'>
+    <div class='block-header-button__issue'><a href='/issues/1/'>Intellectuals</a></div>
+    <div class='block-header-button'><time datetime='2014-06-02T16:52'>June  2, 2014</time></div>
+    
+    <h2 class='article-title block-header-title'>
+        <a href="/articles/2/">The Essayist and the Intellectual</a>
+    </h2>
+    <div class='block-header-authors-attribution'>
+<span class='block-header-authors-attribution-by'>by</span>
+<a class='block-header-authors-author' href="/authors/2/">Pete Sinnott, Jr.</a></div>
+  </div>
+  <div class='block-abstract'><p>In this essay, Pete Sinnott, Jr. provides a short, but important, history of the form of intellectual production, the essay. Both the producer and the product are uncertain, historical artifacts. How we understand intellectual work today is bound up in that history:  on one hand, of the author’s self-conscious introspection or lack thereof and, on the other hand, of the essay as it oscillates between science, art, and criticism.</p></div>
+</div>
+    
+    <div class='block' data-eq-pts="small: 0, medium: 400">
+  <div class='block-header'>
+    <div class='block-header-button__issue'><a href='/issues/1/'>Intellectuals</a></div>
+    <div class='block-header-button'><time datetime='2014-06-02T16:52'>June  2, 2014</time></div>
+    
+    <h2 class='article-title block-header-title'>
+        <a href="/articles/3/">Social Criticism and the Academy</a>
+    </h2>
+    <div class='block-header-authors-attribution'>
+<span class='block-header-authors-attribution-by'>by</span>
+<a class='block-header-authors-author' href="/authors/3/">Rafael Khachaturian</a></div>
+  </div>
+  <div class='block-abstract'><p>What is the relationship between the professional academic and the intellectual, especially for those on the left? Rafael Khachaturian offers a possible answer to this question, exploring the vexed role Marxism played in the past and what answers it suggests for the future. The answer won’t be found in nostalgia for the old public intellectual, nor in the modern day “specialists without spirit,” as Max Weber called them, but in the re-emergence of social criticism.</p></div>
+</div>
+    
+    <div class='block' data-eq-pts="small: 0, medium: 400">
+  <div class='block-header'>
+    <div class='block-header-button__issue'><a href='/issues/1/'>Intellectuals</a></div>
+    <div class='block-header-button'><time datetime='2014-06-02T16:50'>June  2, 2014</time></div>
+    
+    <h2 class='article-title block-header-title'>
+        <a href="/articles/1/">On the Intellectual Question</a>
+    </h2>
+    <div class='block-header-authors-attribution'>
+<span class='block-header-authors-attribution-by'>by</span>
+<a class='block-header-authors-author' href="/authors/1/">Luke Thomas Mergner</a></div>
+  </div>
+  <div class='block-abstract'><p>Through a discussion of two important texts by Kant and Lenin, Luke Mergner explores how our ideas about public intellectuals are tied to different models of social and political authority. The public sphere is defined by the tension between democracy and intellectual authority. How can anyone claiming the role of the public intellectual find alternative critical languages when the egalitarian democratic spaces of the public sphere are withering away? </p></div>
+</div>
+    
+    <div class='block' data-eq-pts="small: 0, medium: 400">
+  <div class='block-header'>
+    <div class='block-header-button__issue'><a href='/issues/1/'>Intellectuals</a></div>
+    <div class='block-header-button'><time datetime='2014-06-10T15:06'>June 10, 2014</time></div>
+    
+    <h2 class='article-title block-header-title'>
+        <a href="/articles/4/">Further Reading</a>
+    </h2>
+    <div class='block-header-authors-attribution'>
+<span class='block-header-authors-attribution-by'>by</span>
+<a class='block-header-authors-author' href="/authors/1/">Luke Thomas Mergner</a><span class='block-header-authors-ampersand'>&amp;</span><a class='block-header-authors-author' href="/authors/2/">Pete Sinnott, Jr.</a></div>
+  </div>
+  <div class='block-abstract'><p>A bibliographical essay on several recent conversations related to the theme of intellectual production and responsibility.</p></div>
+</div>
+    
+
+
+
+</div end content div>
+<div class='contrivers-sidebar'>
+
+    <div class='announcement '>Please read our current Issue on Intellectuals</div>
+
+
+    <div class='banner-art-wrapper'>
+        <a href="/">
+            <img 
+            src='/images/contrivers-icon.jpg' 
+            />
+        </a> 
+    </div>
+    
+    
+    <div class='advertising-wrapper'>
+        <img
+        src="//storage.googleapis.com/support-kms-prod/SNP_1DA7588EEB5450EE2A22C2B2F0A6458A61C0_2922342_en_v1"
+        height="auto"
+        />
+    </div>
+    
+    
+</div>
+
+
+<footer class="contrivers-footer"> 
+
+    <ul class="footer-nav">
+        <li class='footer-nav-item'><a href=''>Masthead</a></li>
+        <li class='footer-nav-item'><a href=''>Support</a></li>
+        <li class='footer-nav-item'><a href=''>Articles</a></li>
+    </ul>
+    <ul class="copyright">
+        <li>
+            <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.contrivers.org"
+            property="cc:attributionName" rel="cc:attributionURL">&copy; 2014 Contrivers' Review</a> 
+            under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons
+            Attribution-NonCommercial-NoDerivatives 4.0 International License </a>.
+        </li>
+
+        <li>
+            Images &copy; copyright by <a href='http://www.natesinnott.com/Muse%20Site/' target='blank'>Nathaniel Sinnott</a>.
+        </li>
+
+        <li>
+            Contrivers' Review is a Python app built (mostly) with <a href='https://github.com/mitsuhiko/flask'>Flask</a>, 
+            <a href='http://www.sqlalchemy.org/'>SQLAlchemy</a>, <a href='http://sass-lang.com/'>Sass</a>, and other open 
+            source libraries. The code for this site is <a href='http://www.github.com/lmergner/contrivers/'>available at 
+            <i class='fa fa-github'></i> Github</a>.
+        </li>
+        </ul>
+</footer>
+</div container>
+
+```
+
+*/

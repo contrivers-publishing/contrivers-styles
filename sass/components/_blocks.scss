@@ -1,0 +1,184 @@
+/*doc
+---
+title: Blocks
+category: Components - Blocks
+name: components-block
+---
+
+Blocks are the structure which wraps the presentation of objects like Articles.
+They are supposed to maintain vertical rhythm. Normal blocks have trailing
+borders. 
+
+
+```html_example
+<div id='content' class=''>
+
+<div class="block" data-eq-pts="small: 0, medium: 500">
+    <div class="block-header">
+        <div class='block-header-button__issue'><a href=''>Political Economy</a></div> 
+        <div class='block-header-button'><time datetime="2014-09-09T13:58">September 9, 2014</time></div>
+        <div class='block-header-button__featured'><a href='/articles/featured/'>Featured</a></div>
+        <h2 class="block-header-title article-title "><a href="">Seeing Like An App</a></h2>
+        <div class="block-header-attribution">
+            <span class="block-header-attribution-by">by</span>
+            <a class="block-header-author" href="/authors/1/">Luke Thomas Mergner</a>
+        </div>
+    </div>
+    <div class="block-abstract">
+        Evgeny Morozov’s newest book is best read as marginalia rather than
+        as any systematic contribution to a social theory of technology. It
+        is a book very much of the moment, focused on challenging the
+        mistakes of a narrow field of interlocutors, all of whom publish,
+        like Morozov, on the fashionable topic of technology journalism. 
+   </div>
+</div>
+<div class="block" data-eq-pts="small: 0, medium: 500">
+   <div class="block-header">
+       <div class="block-header-button__issue"><a href="#">Intellectuals</a></div>
+       <div class="block-header-button"><time datetime="2014-06-02T16:52">June  2, 2014</time></div>
+       <h2 class="article-title block-header-title"> <a href="#">The Essayist and the Intellectual</a> </h2>
+       <div class="block-header-attribution">
+           <span class="block-header-attribution-by">by</span>
+           <a class="block-header-author" href="">Pete Sinnott, Jr.</a>
+       </div>
+   </div>
+   <div class="block-abstract">
+       <p>In this essay, Pete Sinnott, Jr. provides a
+       short, but important, history of the form of intellectual production, the
+       essay. Both the producer and the product are uncertain, historical
+       artifacts. How we understand intellectual work today is bound up in that
+       history:  on one hand, of the author’s self-conscious introspection or lack
+       thereof and, on the other hand, of the essay as it oscillates between
+       science, art, and criticism.</p>
+   </div>
+</div>
+
+</div> <!-- end content div -->
+```
+
+*/
+
+
+.block {
+    @include leader();
+    @include trailing-border($border-style: solid);
+}
+
+
+.block-header {
+    @include adjust-font-size-to(1em);
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        clear: left;
+    }
+}
+
+
+
+.block-header-button {
+    // Only use button styles at a certain eq.js breakpoint
+    a {
+        @include hover-link;
+    }
+    .block[data-eq-state='medium'] & {
+        @include make-button(gray);
+        @include background-transition(gray);
+        display: inline-block;
+        float: right;
+        margin-left: 2px;
+    }
+}
+
+.block-header-button__featured {
+    @extend .block-header-button;
+    .block[data-eq-state='medium'] & {
+        @include background-transition(primary);
+    }
+}
+
+.block-header-button__issue {
+    @extend .block-header-button;
+}
+
+.block-header-attribution { 
+    @extend %author-copy;
+    a { // .author
+        text-decoration: none;
+    }
+}
+
+.block-header-title { 
+    @extend %title-copy;
+    display: inline-block;
+}
+
+.block-abstract,
+%block__abstract {
+    // @include leader();
+    @include paragraph-styles(epsilon);
+}
+
+.block-image {
+    @extend %responsive-image;
+}
+
+
+/*doc
+---
+title: Issue Blocks
+category: Components - Blocks
+---
+
+```html_example
+
+<div id='content' class='layout'>
+
+<div class="block__issue">
+    <h3 class="block-header-title__issue"><a href="">Issue 1: Intellectuals</a></h3>
+    <div class="block" data-eq-pts="small: 0, medium: 500">
+        <div class="block-header">
+            <div class='block-header-button'><time datetime="2014-09-09T13:58">September 9, 2014</time></div>
+            <div class='block-header-button__featured'><a href='/articles/featured/'>Featured</a></div>
+            <h2 class="block-header-title article-title "><a href="">Seeing Like An App</a></h2>
+            <div class="block-header-attribution">
+                <span class="block-header-attribution-by">by</span>
+                <a class="block-header-author" href="/authors/1/">Luke Thomas Mergner</a>
+            </div>
+        </div>
+        <div class="block-abstract">
+            Evgeny Morozov’s newest book is best read as marginalia rather than
+            as any systematic contribution to a social theory of technology. It
+            is a book very much of the moment, focused on challenging the
+            mistakes of a narrow field of interlocutors, all of whom publish,
+            like Morozov, on the fashionable topic of technology journalism. 
+       </div>
+    </div>
+</div>
+
+</div>
+```
+
+*/
+
+.issues-page {
+    @include rhythm;
+    @include breakpoint(map-get($breakpoints, window)) {
+        @include span(9 first);
+    }
+}
+
+.block__issue {
+    @extend .block;
+    border: none;
+}
+
+.block-header-title__issue {
+    @extend .block-header-title;
+    @include make-button(primary);
+    @include background-transition(primary);
+    @include trailer;
+    a { @include hover-link; }
+    display: block;
+    width: 100%;
+    text-align: center;
+   
+}

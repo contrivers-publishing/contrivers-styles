@@ -1,0 +1,25 @@
+{
+  "name": "contrivers-sass",
+  "version": "0.0.0",
+  "authors": [
+    "Luke Mergner <lmergner@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "Cortana": "~1.2.7"
+  },
+  "dependencies": {
+    "eq.js": "~1.4.1"
+  }
+}

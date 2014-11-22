@@ -1,0 +1,177 @@
+
+/*doc
+---
+title: Bleeding
+category: Global - Extends
+---
+%bleeding
+
+```html_example
+<div class='container' style='border: 1px solid black;'>
+    <div class='bleeding' style='color: #fff; height: 25px; background-color: gray;'>Bleeding div</div>
+</div>
+```
+
+*/
+
+.bleeding,
+%bleeding {
+    @warn Should replace extend with bleed mixin;
+    @include bleed-x(gutter());
+}
+
+/*doc
+---
+title: Responsive Image
+category: Global - Extends
+---
+%responsive-image
+
+````html_example
+<div style="width: 350px; float: left;">
+    <p>With Responsive Image</p>
+    <div style="border: 1px solid #888">
+        <img class="responsive-image" src="http://placekitten.com/g/300/200">
+    </div>
+    </div>
+    <div style="width: 350px; float: right;">
+    <p>Without Responsive Image</p>
+    <div style="border: 1px solid #888">
+    <img src="http://placekitten.com/g/300/200">
+    </div>
+</div>
+````
+*/
+
+.responsive-image,
+%responsive-image { 
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/*doc
+---
+title: Italic Copy
+category: Global - Extends
+---
+
+
+````html_example
+<div class="italic-copy">This is Italic Copy</div>
+````
+*/
+
+%italic-copy, 
+.italic-copy {
+    font-style: oblique;
+    font-style: italic;
+}
+
+/*doc
+---
+title: Small Copy
+category: Global - Extends
+---
+%small-copy
+
+````html_example
+<div class="small-copy">This is Small Copy</div>
+````
+*/
+
+
+%small-copy, 
+.small-copy {
+    @include adjust-font-size-to(font-size(epsilon));
+    color: color(gray);
+}
+
+/*doc
+---
+title: Author Copy
+category: Global - Extends
+---
+%author-copy
+
+
+```html_example
+<div class="author-copy">By <a href=''>Luke Thomas Mergner</a>, <a href=''>Peter Sinnott</a>, Jr. & Dummy McStupid</div>
+```
+*/
+
+%author-copy, 
+.author-copy {
+    @include adjust-font-size-to(font-size(delta));
+    color: color(gray);
+    font-family: map-get($font-families, serif);
+    a {
+        @include hover-link;
+    }
+}
+
+/*doc
+---
+title: Title Copy
+category: Global - Extends
+---
+%title-copy
+
+```html_example
+<div class="">
+    <h3 class="title">
+        <a href="#">Class Shock: Affect, Mobility, and the Adjunct Crisis</a>
+    </h3>
+</div>
+```
+*/
+
+.title,
+%title-copy {
+    @include adjust-font-size-to(font-size(beta));
+    color: color(black);
+    font-family: map-get($font-families, title);
+    a {
+        @include hover-link;
+    }
+}
+
+/*doc
+---
+title: Time Copy
+category: Global - Extends
+---
+%datetime
+
+```html_example
+<time class='datetime' datetime="2001-05-15 19:00">May 15</time>
+```
+*/
+
+.datetime,
+%datetime {
+    @include adjust-font-size-to(font-size(delta));
+    color: color(gray);
+}
+
+
+/*doc 
+---
+title: Accent Copy
+category: Global - Extends
+---
+
+%accent
+
+```html_example
+<p>This is a <span class='accent'>paragraph</span> with an accented word.</p>
+```
+*/
+
+%accent,
+.accent { 
+    @include adjust-font-size-to(font-size(delta));
+    color: color(primary); 
+}
+
+

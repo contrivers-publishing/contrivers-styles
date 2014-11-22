@@ -1,0 +1,81 @@
+/*doc
+---
+title: Typography
+category: Global - Typography
+name: base-typography
+---
+
+## Extra Credit
+
+- [Medium 1](https://medium.com/p/8e51498c3713)
+- [Using Compass Vertical Rhythm](https://medium.com/@amlinarev/using-sass-compass-vertical-rhythm-to-set-up-typography-defaults-in-a-project-34fe2f1d2c02)
+- [Typesettings]( https://github.com/ianrose/typesettings)
+- [Typomatic](https://github.com/andrejmlinarevic/typomatic)
+- [Sassline](https://github.com/designbyjake/sassline/)
+- [Managing responsive typography with Sass](http://maketea.co.uk/2014/11/05/managing-responsive-typography-with-sass.html)
+
+
+```html_example
+<div id='test-typography'>
+    <div class='alpha'>Alpha</div>
+    <div class='beta'>Beta</div>
+    <div class='gamma'>Gamma</div>
+    <div class='delta'>Delta</div>
+    <div class='epsilon'>Epsilon</div>
+</div>
+```
+*/
+
+$font-sizes: (
+    alpha: 42px,
+    beta: 26px,
+    gamma: 20px,
+    delta: 16px, // lh = 25
+    epsilon: 13px,
+);
+
+
+
+// Compass Typography Variables
+$base-font-size: 16px;
+$base-line-height: 25px;
+$rhythm-unit: 'rem';
+$rem-with-px-fallback: false;
+
+// include compass vertical rhythm
+@include establish-baseline;
+
+@function font-size($name) {
+    // Get the value from the map and warn if its null
+    $size: map-get($font-sizes, $name);
+    @if $size != null { 
+        @return $size 
+    } @else { 
+        @warn #{$name} is not a valid font-size;
+        @return 16px;
+    }
+}
+
+@each $key in map-keys($font-sizes) {
+    .#{$key} {
+        @include adjust-font-size-to(font-size($key));
+    }
+}
+
+@function font($face) {
+    $face: map-get($font-families, $face);
+    @if $face != null { 
+        @return $face;
+    } @else {
+        @warn "#{$face} is not a valid font-face";
+        @return map-get($font-families, serif);
+    }
+}
+
+@mixin set-font($face, $size: null, $color: black) {
+    @if $size == null { $size: 'delta'; }
+    font-family: $face;
+    @include adjust-font-size-to(font-size($size));
+    color: color($color);
+}
+

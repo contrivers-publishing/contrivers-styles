@@ -1,0 +1,97 @@
+/*doc
+---
+title: pagination
+category: Components - Pagination
+name: components-pagination
+---
+
+Some queries are returned with paginated results.
+
+```html_example
+
+<div id='content' class='container layout archive-page'>
+    <div class='pagination'>
+        <a class='pagination-element__prev' href='' onClick="alert('Previous!');"><i class='fa  fa-angle-left'></i></a>
+        <form class='pagination-element__search' method='post' action='http://www.contrivers.org/search/titles'>
+            <input class='' type='search' placeholder='Search Titles' />
+        </form>
+        <a class='pagination-element__next' href='' onClick="alert('Next!');"><i class='fa  fa-angle-right'></i></a>
+    </div>
+
+    <div class='block'>An article block</div>
+    <div class='block'>An article block</div>
+
+</div>
+```
+
+*/
+
+.pagination {
+    // Appears at the top of the archive pages
+    @include clearfix;
+    background-color: color(secondary);
+    @include breakpoint(map-get($breakpoints, phone)) {
+        @include bleed-x(gutter());
+    }
+    @include breakpoint(map-get($breakpoints, tablet) map-get($breakpoints, window)) {
+        @include bleed-x(gutter());
+        border-bottom: 1px solid color(gray);
+    }
+    @include breakpoint(map-get($breakpoints, window)) {
+        @include leader;
+        @include border-radius(2px);
+        @include box-shadow;
+        border-bottom: none;
+    }
+}
+
+%pagination-element {
+    @include unstyled-link;
+    a { color: color(gray); }
+
+    .fa { font-size: 2em; }
+    margin: 0 auto;
+    text-align: center;
+    padding: .5em 0;
+
+    &.disabled {
+        color: color(light-gray);
+    }
+}
+
+.pagination-element__search {
+    @extend %pagination-element;
+    @include span(6);
+    display: none;
+    @include breakpoint(600px) {
+        display: block;
+    }
+    input[type=search] {
+        @include adjust-font-size-to(font-size(delta));
+        line-height: 25px;
+        height: 30px;
+        border-radius: 2px;
+        color: color(black);
+        display: block;
+        border: 1px solid color(gray);
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.pagination-element__next {
+    @extend %pagination-element;
+    @include span(5 last);
+    @include breakpoint(600px) {
+        @include span(3 last);
+    }
+}
+
+.pagination-element__prev {
+    @extend %pagination-element;
+    @include span(5 first);
+    @include breakpoint(600px) {
+        @include span(3 first);
+    }
+}

@@ -1,0 +1,67 @@
+/*doc
+---
+title: Header
+category: Layout - Header
+name: layout-header
+---
+
+Main header styles.
+
+```html_example
+<header class="contrivers-header" >
+    <div class="header-title">
+        <a class="header-title-link" href="#"><img src='../images/window-banner-large.png'</a>
+    </div>
+    <div class="header-tagline">
+        <a href=''>Theory, Politics,</a> Criticism
+    </div>
+
+    <nav 
+        class="nav navbar header-nav contriversNav" >
+        <ul>
+            <li class="nav-item__link"><a href="#">Articles</a></li>
+            <li class="nav-item__link"><a href="#">Reviews</a></li>
+            <li class="nav-item__link"><a href="#">Support</a></li> 
+            <li class="nav-item__link"><a href="#">Masthead</a></li>
+            <li class="nav-item__search"><a href="#"><i class="fa fa-search"></i></a></li>
+            <li class="nav-item__twitter"><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+        </ul>
+    </nav>
+</header>
+```
+
+*/
+
+.contrivers-header {
+    @extend %bleeding;
+    @include clearfix;
+    @include box-shadow;
+    background-color: color(primary);
+    border-bottom: 2px solid color(black);
+    font-family: map-get($font-families, title);
+    padding-bottom: gutter();
+    a { @include unstyled-link; };
+}
+
+.header-title {
+    @include adjust-font-size-to(font-size(beta));
+    text-align: center;
+    margin: 0 auto;
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        @include adjust-font-size-to(font-size(alpha));
+        text-align: left;
+    }
+}
+
+.header-tagline,
+.header-nav {
+    text-align: center;
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        @include adjust-font-size-to(font-size(delta));
+        text-align: left;
+    }
+}
+.header-tagline {
+    // @extend %nav-item;
+}
+

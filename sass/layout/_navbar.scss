@@ -1,0 +1,56 @@
+/*doc
+---
+title: Navigation
+category: Layout - Navbar
+name: layout-navbar
+---
+
+```html_example
+<nav 
+    class="nav navbar nav-collapse contriversNav" >
+    <ul>
+        <li class="nav-item__link"><a href="#">Articles</a></li>
+        <li class="nav-item__link"><a href="#">Reviews</a></li>
+        <li class="nav-item__link"><a href="#">Support</a></li> 
+        <li class="nav-item__link"><a href="#">Masthead</a></li>
+        <li class="nav-item__search"><a href="#"><i class="fa fa-search"></i></a></li>
+        <li class="nav-item__twitter"><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+    </ul>
+</nav>
+
+```
+
+*/
+
+.nav-item,
+%nav-item {
+    text-align: center;
+    a { 
+        text-decoration: none;
+        display: block;
+        color: color(black); 
+    }
+    @include breakpoint(map-get($breakpoints, phone)) {
+        border-bottom: 1px solid black;
+        &:hover { border-color: #fff; }
+    }
+}
+
+.nav-item__link {
+    @extend %nav-item;
+}
+
+.nav-item__search,
+.nav-item__twitter {
+    @extend %nav-item;
+}
+
+.contriversNav {
+    @include clearfix;
+    @include inline-block-list;
+    @include adjust-font-size-to(font-size(gamma));
+
+    ul {
+        list-style-type: none; 
+    }
+}

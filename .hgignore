@@ -1,0 +1,9 @@
+syntax: glob
+node_modules
+bower_components
+
+styleguide
+stylesheets
+phantomcss/results
+.sass-cache
+.DS_Store

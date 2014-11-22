@@ -1,0 +1,114 @@
+/*doc
+---
+title: Colors
+category: Global - Variables
+name: variables
+---
+
+
+| Variable Name | Hex Value | Swatch | Example |
+|---------|-------|------|----|
+|primary | #D45A43 | <div style="background: #D45D43; height: 30px;"></div> | <div style="color:#D45D43"> Example </div> |
+|secondary | #FFD69C | <div style="background: #FFD69C; height: 30px"></div> | <div style="color: #FFD69C"> Example </div> |
+|tertiary | #FFF8DC | <div style="background: #FFF8DC; height: 30px"></div> | <div style="color: #FFF8DC"> Example </div> |
+|black | rgb(41, 38, 28) | <div style="background: rgb(41, 38, 28); height: 30px"></div> | <div style="color: rgb(41, 38, 28);"> Example </div> |
+|white | #fff| <div style="background: #fff; height: 30px"></div> | <div style="color: #fff"> Example </div> |
+|grey | #555566| <div style="background: #555566; height: 30px"></div> | <div style="color: #555566"> Example </div> |
+|light gray| #ccc | <div style='background: #ccc; height: 30px'></div> | <div style='color: #ccc'> Example </div> |
+
+
+*/
+
+$colors: (
+    primary: #D45A43,
+    secondary: #FFD69C, //#FFFAEE, // #F8F2E3, // FFD69C
+    tertiary: #FFF8DC, //#FFAD9D,
+    black: rgb(41, 38, 28),
+    white: #fff,
+    gray: #555566,
+    light-gray: #ccc
+);
+
+
+/*doc 
+---
+title: Link Colors
+category: Global - Variables
+---
+
+| State   | Swatch | Example |
+|---------|--------|---------|
+| normal  | <div style='background: #D45a43; height: 30px'></div> | <div style='color: #D45a43'>Example</div> |
+| :hover   | <div style='background: #F4826D; height: 30px'></div> | <div style='color: #F4826D'>Example</div> |
+| :active  | <div style='background: #901F0A; height: 30px'></div> | <div style='color: #901F0A'>Example</div> |
+| :visited | <div style='background: rgb(41, 38, 28); height: 30px'></div> | <div style='color: rgb(41, 38, 28)'>Example</div> |
+| :focus   | <div style='background: #901f0A; height: 30px'></div> | <div style='color: #901f0A'>Example</div> |
+
+*/
+
+$link-colors: (
+    normal: #D45A43,
+    hover: #F4826D,
+    active: #901F0A,
+    visited: rgb(41, 38, 28),
+    focus: #901F0A,
+);
+
+/*doc 
+---
+title: Fonts
+category: Global - Variables
+name: fonts
+---
+
+```html_example
+<p style='font-family: "Droid Serif"'>This is the Droid Serif font.</p>
+<p style='font-family: "Lora"'>This is the Lora font, which we use for titles and headers.</p>
+```
+
+*/
+
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic);
+
+$font-families: (
+    serif: ("Droid Serif", Georgia, serif),
+    sans-serif: ("Droid Sans", sans-serif),
+    title: ("Lora", Georgia, serif),
+);
+
+$base-font: (
+    font-family: map-get($font-families, serif),
+    line-height: 1.5,
+    font-size: 16,
+    color: map-get($colors, black),
+    font-weight: 400,
+);
+
+
+$susy: (
+    global-box-sizing: border-box,
+    columns: 12,
+    gutters: 1/2,
+);
+
+$breakpoints: (
+    phone: 0px 480px,
+    tablet: 481px,
+    window: 960px,
+);
+
+
+@function color($name, $opacity: 1) {
+    $color: map-get($colors, $name);
+    @if $color != null {
+        @return rgba($color, $opacity);
+    }
+    @else {
+        @warn "#{$name} is not a valid color";
+        @return "black";
+    }
+}
+

@@ -1,0 +1,78 @@
+/*doc
+---
+title: Frames
+category: Components - Images
+---
+```html_example
+<img class='image-frame' style='height:300px; width:300px;' />
+
+```
+
+*/
+
+.image-frame {
+    @include box-shadow;
+    @include rhythm;
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        border: 2px solid color(gray);
+        padding: 2px;
+        background-color: white;
+    }
+}
+
+/*doc
+---
+title: Brand
+category: Components - Images
+---
+
+TODO: Generate, and include links for, srcset appropriate images
+
+```html_example
+<div class='banner-art-wrapper'>
+    <a href=''>
+        <img 
+            class='banner-art' 
+            id='banner-art' 
+            src='/images/contrivers-icon.jpg' 
+        />
+    </a>
+</div>
+```
+
+*/
+
+.banner-art-wrapper {
+    @extend .image-frame;
+    img {
+        @extend %responsive-image;
+        margin: 0 auto;
+    }
+}
+
+/*doc
+---
+title: Advertising
+category: Components - Images
+---
+
+```html_example
+
+<div class='advertising-wrapper' data-eq-pts='hidden:0,adWidth:160'>
+    <img
+    src="//storage.googleapis.com/support-kms-prod/SNP_1DA7588EEB5450EE2A22C2B2F0A6458A61C0_2922342_en_v1"
+    height="auto"
+    />
+ </div>
+```
+
+*/
+
+.advertising-wrapper {
+    @extend .image-frame;
+    img {
+        @extend %responsive-image;
+        margin: 0 auto;
+    }
+}
+

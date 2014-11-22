@@ -1,0 +1,131 @@
+
+* {
+    @include box-sizing('border-box');
+}
+
+
+.container {
+    @include container(960px);
+}
+
+
+img {
+    @extend %responsive-image;
+}
+
+/*doc
+---
+title: Strong
+category: Base
+name: base-strong
+---
+
+Default: Bold fonts.
+
+```html_example
+<p>This text is <b>bold</b>.</p>
+<p>This text is also <span class='strong'>bold</span>.</p>
+```
+
+*/
+
+b, 
+.strong {
+    font-weight: bold;
+    font-weight: 700;
+}
+
+/*doc
+---
+title: Italics
+category: Base
+name: base-italics
+---
+
+Default: Italics fonts. 
+
+TODO: Change fonts to default paragraph font and make sure that the 
+installed font has an italics not just oblique.
+
+```html_example
+<p>The text is <i>italicized</i>.</p>
+<p>The text is <em>emphasized</em>.</p>
+<p>The text is <span class='italics'>italicized via a class</span>.</p>
+```
+
+*/
+i,
+em,
+.italics { 
+  font-style : oblique;
+  font-style: italics; 
+}
+
+/*doc
+---
+title: HTML
+category: Base
+name: base-paragraphs
+---
+
+
+```html_example
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.
+Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec
+consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero
+egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem
+lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida
+lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.
+Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim
+sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in
+urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam
+pulvinar at malesuada arcu rhoncus.
+```
+*/
+html {
+    @each $k, $v in $base-font {
+        $k: $v;
+    }
+    margin-left: 2px;
+    margin-right: 2px;
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        margin-right: gutter();
+        margin-left: gutter();
+    }
+    @include breakpoint(map-get($breakpoints, window)) {
+        margin-right: auto;
+        margin-left: auto;;
+    }
+}
+
+/*doc 
+---
+title: Links
+category: Base
+---
+```html_example
+<a href='#Link'>A Link</a>
+```
+*/
+
+
+//  sass/global/_variables.scss  
+//  $link-colors for definition
+a {
+    color: map-get($link-colors, normal);
+    &:visited { color: map-get($link-colors, visited); }
+    &:focus { color: map-get($link-colors, focus); }
+    &:hover { color: map-get($link-colors, hover); }
+    &:active { color: map-get($link-colors, active); }
+}
+
+// Don't show figcaptions created by Markdown formated image links
+figcaption { 
+  display: none;
+}
+
+// hide things by class name
+.hidden {
+  display: none;
+}

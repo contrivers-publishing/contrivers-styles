@@ -1,0 +1,63 @@
+
+/*doc
+---
+title: Announcements
+category: Components - Announcements
+---
+
+What do I call things that are on the front page,
+but are not styled `block` elements.
+
+```html_example
+
+<div class='container'>
+
+<div 
+    style='max-width: 500px; margin: 1em auto;' class='announcement'
+    data-eq-pts='delta:100, epsilon:250'>
+    Browse our latest issue on <a href="#">the Digital Humanities</a>.
+</div>
+
+<div 
+    style='max-width: 500px; margin: 1em auto;' 
+    class='announcement' 
+    data-eq-pts='delta:100, epsilon:250', 
+    >
+    <a href=''>Contrivers' Review</a> is currently fundraising for its
+    first issue of 2015. Throughout the year, we'll be publishing 
+    essays discussing the impact of technology on education, philosophy, 
+    society, and politics. To help us, click <a href=''>here for more 
+    information</a>.
+</div>
+
+</div>
+```
+*/
+
+.announcement-copy,
+%announcement-copy {
+    @include adjust-font-size-to(font-size(delta));
+    color: color(black);
+    font-family: map-get($font-families, serif);
+    text-align: center;
+    hyphens: auto;
+}
+
+.announcement {
+    @extend %announcement-copy;
+    @include box-shadow;
+    @include border-radius(2px);   
+    hyphens: manual;
+    overflow: hidden;
+    background-color: color(secondary);
+    padding: 0 gutter();
+    @include rhythm-padding(0.5);
+
+    // &[data-eq-state='delta'] {
+    //     padding: gutter() / 2;
+    // }
+
+    // &[data-eq-state='epsilon'] {
+    //     padding: gutter();
+    // }
+}
