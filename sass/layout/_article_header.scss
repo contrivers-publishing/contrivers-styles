@@ -32,20 +32,9 @@ name: layout-article-title
 
 .article-header {
 
-    // Center a block element of text.
-    margin: auto 0;
-    
-    // Center the text inside the block.
-    text-align: center;
+    @include title(beta);
 
-    // Responsive Design: Bump up the font size on larger displays.
     .article-header-title {
-        a { @include unstyled-link; }
-        @include adjust-font-size-to(font-size(beta));
-        @include breakpoint(map-get($breakpoints, tablet)) {
-            @include adjust-font-size-to(font-size(alpha));
-            @include rhythm;
-        }
     }
 
     .article-header-attribution {
@@ -53,14 +42,12 @@ name: layout-article-title
             display: inline-block; 
             margin-left: .25em;
         }
-        @include adjust-font-size-to(font-size(gamma));
-        color: color(gray);
+        @include set-font(title, gamma, gray);
         @include rhythm;
     }
 
     .article-header-book-reviewed {
-        @include adjust-font-size-to(font-size(delta));
-        color: color(gray);
+        @include set-font(serif, delta, gray);
         // span.book-reviewed-title > a
         // book-reviewed-colon
         // book-reviewed-subtitle

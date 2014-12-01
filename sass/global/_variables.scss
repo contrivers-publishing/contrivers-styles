@@ -1,3 +1,5 @@
+
+
 /*doc
 ---
 title: Colors
@@ -6,27 +8,33 @@ name: variables
 ---
 
 
-| Variable Name | Hex Value | Swatch | Example |
-|---------|-------|------|----|
-|primary | #D45A43 | <div style="background: #D45D43; height: 30px;"></div> | <div style="color:#D45D43"> Example </div> |
-|secondary | #FFD69C | <div style="background: #FFD69C; height: 30px"></div> | <div style="color: #FFD69C"> Example </div> |
-|tertiary | #FFF8DC | <div style="background: #FFF8DC; height: 30px"></div> | <div style="color: #FFF8DC"> Example </div> |
-|black | rgb(41, 38, 28) | <div style="background: rgb(41, 38, 28); height: 30px"></div> | <div style="color: rgb(41, 38, 28);"> Example </div> |
-|white | #fff| <div style="background: #fff; height: 30px"></div> | <div style="color: #fff"> Example </div> |
-|grey | #555566| <div style="background: #555566; height: 30px"></div> | <div style="color: #555566"> Example </div> |
-|light gray| #ccc | <div style='background: #ccc; height: 30px'></div> | <div style='color: #ccc'> Example </div> |
-
-
+| Variable Name | Swatch |
+|---------------|--------|
+| primary    | <div style="background: #D45D43; height: 30px;"></div> | 
+| primary-light| <div style="background: #FFAAAA; height: 30px;"></div> | 
+| primary-dark| <div style="background: #550000; height: 30px;"></div> | 
+| secondary  | <div style="background: #ffe5c0; height: 30px"></div> |
+| tertiary   | <div style="background: #FFF8DC; height: 30px"></div> | 
+| green      | <div style='background: #319b55; height: 30px'></div> | 
+| blue       | <div style='background: #2d6f84; height: 30px'></div> | 
+| black      | <div style="background: #222222; height: 30px"></div> | 
+| grey    | <div style="background: #555566; height: 30px"></div> | 
+| gray-light | <div style='background: #eeeeee; height: 30px'></div> | 
+| white      | <div style="background: #ffffff; height: 30px"></div> | 
 */
 
 $colors: (
     primary: #D45A43,
-    secondary: #FFD69C, //#FFFAEE, // #F8F2E3, // FFD69C
-    tertiary: #FFF8DC, //#FFAD9D,
-    black: rgb(41, 38, 28),
-    white: #fff,
-    gray: #555566,
-    light-gray: #ccc
+    primary-light: #FFAAAA,
+    primary-dark: #550000,
+    secondary: #FFD69C,
+    tertiary: #FFF8DC, 
+    green: #319b55,
+    blue: #2d6f84,
+    black: #222222, // #29261c,
+    gray: #595959,
+    gray-light: #EEEEEE,
+    white: #FFFFFF,
 );
 
 
@@ -92,23 +100,26 @@ $susy: (
     global-box-sizing: border-box,
     columns: 12,
     gutters: 1/2,
+    gutter-positon: split,
 );
 
 $breakpoints: (
-    phone: 0px 480px,
+    phone: 0px 481px,
     tablet: 481px,
     window: 960px,
 );
 
 
-@function color($name, $opacity: 1) {
-    $color: map-get($colors, $name);
-    @if $color != null {
-        @return rgba($color, $opacity);
-    }
-    @else {
-        @warn "#{$name} is not a valid color";
-        @return "black";
-    }
-}
+// 
+// Site variables
+// 
+$container-width: 960px;
+$sidebar-col-width: 3;
+$article-page-width:  span(8);
+$module_pages: index, masthead, support, archive, issues, author, error, tags, search, article;
+$default_border: 1px solid map-get($colors, gray);
+$default-border-radius: 2px; // default for Compass border-radius mixin
+
+// responsiveNav toggle element width caculated in span()
+$menu-toggle-width: 25%;
 

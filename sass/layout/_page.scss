@@ -1,0 +1,47 @@
+/*doc
+---
+title: Pages
+category: Layout - Pages
+---
+
+Pages encapsulate a view or endpoint such as main-page, archive-page, article-page.
+
+For article styles, see `.article-body`
+
+*/
+
+
+// $module-pages defined in global/_variables 
+
+
+%page, 
+.page {
+    @include breakpoint(map-get($breakpoints, window)) {
+        @include rhythm;
+        @include span(map-get($susy, columns) - $sidebar-col-width first);
+    }
+    // Markdown Styles
+    @for $num from 1 through 5 {
+        h#{$num} {
+            $key: nth(map-keys($font-sizes), $num);
+            @include title($key);
+            @include trailer;
+        }
+    }   
+}
+
+@each $page in $module-pages {
+    @debug "styling #{$page}-page";
+    .#{$page}-page {
+        @extend %page;
+    }
+}
+
+article-page {
+    article {
+        max-width: span($article-page-width);
+        margin: 0 auto;
+    }
+}
+
+

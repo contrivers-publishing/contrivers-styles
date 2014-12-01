@@ -17,19 +17,13 @@ Site Sidebar used on the main index page.
             society, and politics. To help us, click <a href=''>here for more 
             information</a>.
         </div>
-        <div class='banner-art-wrapper block'>
+        <div class='image-wrapper__banner-art'>
             <a href=''>
-                <img 
-                class='image-frame banner-art'
-                src='/images/contrivers-icon.jpg' 
-                />
+                <img src='/images/contrivers-icon.jpg' />
             </a> 
         </div>
-        <div class='advertising-wrapper'>
-            <img
-            src="//storage.googleapis.com/support-kms-prod/SNP_1DA7588EEB5450EE2A22C2B2F0A6458A61C0_2922342_en_v1"
-            height="auto"
-            />
+        <div class='image-wrapper__advertising'>
+            <img src="//storage.googleapis.com/support-kms-prod/SNP_1DA7588EEB5450EE2A22C2B2F0A6458A61C0_2922342_en_v1" height="auto" />
         </div>
     </div>
 
@@ -39,11 +33,11 @@ Site Sidebar used on the main index page.
 */
 
 .contrivers-sidebar {
-    @include rhythm;
     display: none;
     @include breakpoint(map-get($breakpoints, window)) {
+        @include rhythm;
         display: block;
-        @include span(3 of 12 last);
+        @include span($sidebar-col-width last);
     }
 }
 

@@ -125,7 +125,7 @@ necessary libraries.
 - Block: Any way to calculate the [tags] and wrap the title without clearing?
 - Author printing:  spaces between 'by' spans
 - Author page / cards
-- line spacing between footer-nav items is too much. @bugfig
+- line spacing between footer-nav items is too much. @bugfix
 
 #### v0.3
 - refactoring @feature

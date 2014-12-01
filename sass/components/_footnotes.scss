@@ -37,11 +37,23 @@ the jinja template before the page is returned. On the client side, they are for
 
 .footnotes, 
 .footnote {
-  @include leader(1);
-  font-family: map-get($font-families, serif);
-  @include adjust-font-size-to(font-size(epsilon));
-  ol li { list-style-position: inside;}
-  p { text-align: left; }
-  li { list-style-type: decimal; }
+  @include rhythm;
+  @include set-font(serif, epsilon, black);
+  p { 
+      @include set-font(serif, epsilon, black);
+      hyphens: manual;
+      overflow: hidden;
+      text-align: left;
+      @include trailer(0.25);
+  }
+  li { 
+      list-style-type: decimal;
+      list-style-position: inside; 
+  }
 }
 
+.footnote-ref {
+    @extend %small-copy;
+    vertical-align: super;
+    text-decoration: none;
+}

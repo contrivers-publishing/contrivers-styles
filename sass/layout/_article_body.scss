@@ -29,26 +29,21 @@ The article body.
 ```
 */
 
+
+// article.article-body, article.article-header {
+//     max-width: span($article-page-width);
+//     margin: 0 auto;
+// }
+
 .article-body {
 
-    @include container(700px fluid);
-    @include paragraph-styles;
+    @extend %paragraph-copy;
 
-
-    h1, h2, h3, h4, h5, h6 {
-      text-align: center;
-      @include rhythm;
-      @include adjust-font-size-to(font-size(gamma));
-      font-weight: bold;
-    }
 
     .epigram, 
     .pullquote,
     .book-reviewed {
-        @include adjust-font-size-to(font-size(delta));
-        font-family: map-get($font-families, sans-serif);
         @include rhythm;
-        @include background-image(linear-gradient(to bottom right, color(tertiary), color(white)));
         padding: gutter();
         @include margin-trailer;
 

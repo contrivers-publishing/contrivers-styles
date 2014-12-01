@@ -28,14 +28,14 @@ No styles for toc yet.
 
 .toc {
     padding: 1em;
+    @include align-items(center);
     ul { 
         list-style-type: decimal; 
         list-style-position: inside;
     }
     
     li {
-        // Don't increase the line-height in lists
-        @include adjust-font-size-to(font-size(epsilon));
+        @include set-font($size: epsilon);
     }
 
 }

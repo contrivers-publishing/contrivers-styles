@@ -29,19 +29,19 @@ Some queries are returned with paginated results.
 .pagination {
     // Appears at the top of the archive pages
     @include clearfix;
-    background-color: color(secondary);
+    background-color: rgba(color(secondary), 0.6);
     @include breakpoint(map-get($breakpoints, phone)) {
         @include bleed-x(gutter());
     }
     @include breakpoint(map-get($breakpoints, tablet) map-get($breakpoints, window)) {
         @include bleed-x(gutter());
-        border-bottom: 1px solid color(gray);
+        border-bottom: $default-border;
     }
     @include breakpoint(map-get($breakpoints, window)) {
-        @include leader;
-        @include border-radius(2px);
-        @include box-shadow;
+        @include border-radius;
+        // @include box-shadow;
         border-bottom: none;
+        border: $default-border;
     }
 }
 
@@ -55,25 +55,26 @@ Some queries are returned with paginated results.
     padding: .5em 0;
 
     &.disabled {
-        color: color(light-gray);
+        color: color(gray-light);
     }
 }
 
 .pagination-element__search {
     @extend %pagination-element;
-    @include span(6);
     display: none;
     @include breakpoint(600px) {
+        @include span(6);
         display: block;
     }
     input[type=search] {
         @include adjust-font-size-to(font-size(delta));
         line-height: 25px;
         height: 30px;
-        border-radius: 2px;
+
+        @include border-radius;
         color: color(black);
         display: block;
-        border: 1px solid color(gray);
+        border: $default-border;
         text-align: center;
         width: 100%;
         margin: 0 auto;

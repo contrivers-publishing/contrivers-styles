@@ -18,10 +18,10 @@ borrowed from Mailchimp's default embed styles and [bootstrap-sass][].
 <h1>Mailing List</h1>
 <div class='form-blurb'>Please sign up for our mailing list. We announce new issues and other infrequent items of interest.</div>
 
-<form action="//contrivers.us3.list-manage.com/subscribe/post?u=dd125dca9ae429922ce3f2ff4&amp;id=22a9f9d26e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<form action="" class="validate" target="_blank" novalidate>
 
     <div class="mc-field-group">
-        <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span> </label>
+        <label for="mce-EMAIL" >Email Address <span class="asterisk">*</span> </label>
         <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
     </div>
     <div class="mc-field-group">
@@ -32,11 +32,6 @@ borrowed from Mailchimp's default embed styles and [bootstrap-sass][].
         <label for="mce-LNAME">Last Name </label>
         <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
     </div>
-    <div class="mc-field-group">
-        <label for="mce-MMERGE3">Twitter </label>
-        <input type="text" value="" name="MMERGE3" class="" id="mce-MMERGE3">
-    </div>
-
     <div id="mce-responses" class="clear">
         <div class="response" id="mce-error-response" style="display:none"></div>
         <div class="response" id="mce-success-response" style="display:none"></div>
@@ -45,7 +40,7 @@ borrowed from Mailchimp's default embed styles and [bootstrap-sass][].
     <div style="position: absolute; left: -5000px;">
         <input type="text" name="b_dd125dca9ae429922ce3f2ff4_22a9f9d26e" tabindex="-1" value="">
     </div>
-    <div class="clear">
+    <div class="clear form-ctrl-group mc-field-group">
         <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
     </div>
     </div>
@@ -54,8 +49,6 @@ borrowed from Mailchimp's default embed styles and [bootstrap-sass][].
 
 <!--End mc_embed_signup-->
 
-
-<form><input type='search' /></form>
 ```
 
 */
@@ -65,95 +58,89 @@ input[type="search"] {
       -webkit-appearance: none;
 }
 
-
+.required {
+    color: color(primary);
+}
 
 %input {
 }
 
+.field-group,
 %field-group {
     @include clearfix;
 
     label { 
         line-height: 25px;
-        height: 30px;
     }
 
     input {
         line-height: 25px;
-        height: 30px;
         background-image: none;
         background-color: white;
-        border-radius: 2px;
+        @include border-radius;
         color: color(black);
-        border: 1px solid color(gray);
+        border: $default-border;
         text-align: left;
         width: 100%;
-        margin: 2px auto;
         @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
     }
 }
 
 #mc_embed_signup {
-
-    font-family: map-get($font-families, sans-serif);
-    @include adjust-font-size-to(font-size(delta)); 
-    border-radius: 2px;
-    background-color: color(secondary);
-    border: 1px solid color(gray);
-    padding: 0 gutter();
     @include rhythm;
+    @include set-font(sans-serif, delta, black);
+    @include border-radius;
+    background-color: color(gray-light);
+    border: $default-border;
+    padding: 0 gutter();
 
-    h1, .form-header {
-        // @include adjust-font-size-to(font-size(beta));
+    h1, h2, h3,
+    .form-header {
         @include set-font(title, beta);
         text-align: center;
     }
 
     .form-blurb {
-        @include clearfix;
-        @include set-font(serif, gamma, light-gray); 
-        margin: 0 auto;
+        @include set-font(serif, delta);
         @include rhythm;
-        @include breakpoint(map-get($breakpoints, tablet)) {
-        }
     }
 
     .mc-field-group {
         @extend %field-group;
+        @include set-font(sans-serif, delta);
         display: block;
-        @include trailer;
+        @include trailer(0.5);
         @include breakpoint(map-get($breakpoints, tablet)) {
             label {
                 display: inline-block;
                 &:after { content: ': '; }
                 text-align: right;
                 white-space: nowrap;
-                width: span(6);
+                @include span(4 first);
             }
-            input {
+            input[type="text"],
+            input[type="email"] {
                 display: inline-block;
-                width: span(6);
+                @include span(8 last);
             }
         }
     }
 
     input[type=submit] {
-        @include align-items(center);
-        @include border-radius(2px);
-        @include set-font(title, $color: color(black));
-        background-color: color(light-gray);
+        @include border-radius;
+        @include set-font(sans-serif, gamma, black);
+        @include background-transition(green);
         display: inline-block;
-        border: 1px solid color(gray);
-        padding: 0.75em;
-        height: 30px;
-        text-decoration: none;
-        a {
-            @include unstyled-link;
-            color: color(black);
-        }
+        border: $default-border;
+        padding: 0.5em;
+        text-align: center;
 
         @include breakpoint(map-get($breakpoints, phone)) {
             width: 100%;
+        }
+        @include breakpoint(map-get($breakpoints, tablet)) {
+            @include span(4 last);
+
         }
     }
 
@@ -162,7 +149,7 @@ input[type="search"] {
         @include clearfix; 
     }
 
-    .asterick {
+    .asterisk {
         color: color(primary);
     }
 }
@@ -191,7 +178,7 @@ category: Components - Forms
 */
 
 
-// .contrivers-tooltip {
+// [tooltip] {
 //     background: rgb(255, 255, 255);
 //     border: 1px solid rgb(255, 255, 255);
 //     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -201,7 +188,7 @@ category: Components - Forms
 //     color: map-get($colors, primary);
 // }
 
-// .contrivers-tooltip:after {
+// [tooltip]:after {
 //     position: absolute;
 //     display: inline-block;
 //     border-top: 6px solid transparent;

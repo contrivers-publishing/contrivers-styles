@@ -83,7 +83,7 @@ category: Global - Extends
 
 %small-copy, 
 .small-copy {
-    @include adjust-font-size-to(font-size(epsilon));
+    font-size: 11px;
     color: color(gray);
 }
 
@@ -96,45 +96,18 @@ category: Global - Extends
 
 
 ```html_example
-<div class="author-copy">By <a href=''>Luke Thomas Mergner</a>, <a href=''>Peter Sinnott</a>, Jr. & Dummy McStupid</div>
+by <span class="author"><a href=''>Luke Thomas Mergner</a>, <a href=''>Peter Sinnott</a>, Jr. & Dummy McStupid</span>
 ```
 */
 
 %author-copy, 
-.author-copy {
-    @include adjust-font-size-to(font-size(delta));
-    color: color(gray);
-    font-family: map-get($font-families, serif);
+.author {
+    @include set-font(serif, $color: black);
     a {
-        @include hover-link;
+        @include unstyled-link;
     }
 }
 
-/*doc
----
-title: Title Copy
-category: Global - Extends
----
-%title-copy
-
-```html_example
-<div class="">
-    <h3 class="title">
-        <a href="#">Class Shock: Affect, Mobility, and the Adjunct Crisis</a>
-    </h3>
-</div>
-```
-*/
-
-.title,
-%title-copy {
-    @include adjust-font-size-to(font-size(beta));
-    color: color(black);
-    font-family: map-get($font-families, title);
-    a {
-        @include hover-link;
-    }
-}
 
 /*doc
 ---
@@ -150,8 +123,7 @@ category: Global - Extends
 
 .datetime,
 %datetime {
-    @include adjust-font-size-to(font-size(delta));
-    color: color(gray);
+    @include set-font(serif, delta, gray);
 }
 
 
@@ -168,10 +140,17 @@ category: Global - Extends
 ```
 */
 
-%accent,
+%accent-copy,
 .accent { 
-    @include adjust-font-size-to(font-size(delta));
-    color: color(primary); 
+    color: color(primary);
 }
 
+
+%bold-copy,
+strong,
+b,
+.strong {
+    font-weight: 700;
+    font-weight: bold;
+}
 

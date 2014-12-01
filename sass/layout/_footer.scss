@@ -38,7 +38,6 @@ name: layout-footer
 */
 
 @mixin footer-grid($half) {
-    li { @include rhythm(); }
     @include breakpoint(map-get($breakpoints, tablet)) {
         @include span(6 $half);
     }
@@ -46,24 +45,26 @@ name: layout-footer
 
 
 .contrivers-footer { 
-    @extend %bleeding;
-    @include clearfix;
-    clear: both;
+    @include bleed(0 gutter() 0 gutter());
     @include box-shadow;
-    background-color: color(gray);
-    border-top: 2px solid color(black);
     @include rhythm-padding;
-    color: color(white);
-
-    font-family: map-get($font-families, serif);
-    @include adjust-font-size-to(font-size(delta));
+    @include set-font(serif, delta, white);
+    @include clearfix;
+    background-color: color(gray);
+    border-top: 2px solid color(gray);
+    clear: both;
     min-height: 50px;
-    a { @include link-colors(color(white), $visited: color(white)); }
-
+    a { 
+        @include link-colors(color(white), $visited: color(white)); 
+    }
     .copyright { 
         @include footer-grid(last);
+        li { @include trailer(); }
     }
     .footer-nav {
         @include footer-grid(first);
+    }
+    @include breakpoint(map-get($breakpoints, window)) {
+        // @include bleed-x(300px);
     }
 }

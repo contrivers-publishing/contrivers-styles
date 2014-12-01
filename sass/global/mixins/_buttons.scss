@@ -1,0 +1,37 @@
+
+/*doc
+---
+title: Buttons
+category: Global - Mixins
+---
+
+@mixin make-button
+
+-    __$btn-color__ - sets background color
+-    __$btn-text-color: white__ - sets text color
+-    __$disabled: false__ - if set to 'true' removes hover effect and sets pointer to default
+
+credits: [Micah Godbolt](https://github.com/micahgodbolt/sassbitesdemo/blob/master/sass/global/_mixins.scss)
+
+*/
+
+@mixin make-button($btn-color, $btn-text-color: white) {
+    @include align-items(center);
+    // @include background-transition($btn-color);
+    @include border-radius;
+    color: color($btn-text-color);
+    background-color: color($btn-color);
+    display: inline-block;
+    
+    border: none; // fixes elements with a border set
+    // font-size: pem(16);
+    padding: 0.75em;
+    // font-weight: bold;
+    text-decoration: none;
+
+    a {
+        @include unstyled-link;
+        color: $btn-text-color;
+    }
+}
+

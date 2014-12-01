@@ -48,6 +48,7 @@ Article aside contains meta-information about the article and sharing tools.
 }
 
 .article-aside {
+
     @extend %bleeding;
     @include adjust-font-size-to(font-size(delta));
     background-color: color(secondary);
@@ -69,71 +70,4 @@ Article aside contains meta-information about the article and sharing tools.
             } 
         }
     }
-
-    @include eq('stack') {
-        ul > li { 
-            display: block; 
-        }
-    }
-
-    @include eq('inline') {
-        ul {
-            text-align: center;
-            li { 
-            display: inline-block; 
-            }
-        }
-
-        .submenu {
-            position: absolute;
-            text-align: center;
-            left: 0;
-
-            li {
-                display: block;
-                text-align: center;
-                width: 100%;
-                white-space: nowrap;
-                overflow: hidden;
-
-            }
-        }
-    }
 }
-
-
-        
-    // }
-
-    // .submenu {
-    //     // display: block;
-    //     // z-index: 1000;
-    //     left: 0;
-    //     // float: left;
-    //     width: 100%;
-    //     text-align: center;
-    //     // border-radius: 2px;
-    //     // @include box-shadow;
-    //     // background-clip: padding-box;
-    //     background-color: color(secondary);
-    //     // @include clearfix;
-    //     > ul {
-
-    //     }
-    //     > li {
-    //         border-bottom: 1px solid color(gray);
-    //         display: block;
-
-    //     }
-    //     > li > a {
-    //         display: block;
-    //         // padding: 3px 20px;
-    //         @include clearfix;
-    //         // font-weight: normal;
-    //         // line-height: 25;
-
-    //         white-space: nowrap; // prevent links from randomly breaking onto new lines
-    //     }
-
-
-

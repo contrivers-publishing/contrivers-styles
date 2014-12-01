@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         watch: {
             compass: {
                 files: ['sass/{,**/}*.scss'],
-                tasks: ['compass:dev'],
+                tasks: ['compass:dev', 'shell:copy'],
             },
 
             hologram: {
@@ -68,7 +68,27 @@ module.exports = function (grunt) {
             },
             bower: {
                 command: 'bower install'
+            },
+            copy: {
+                command: 'cp -R ./stylesheets/ ../contrivers/static/css/'
             }
+        },
+
+        uglify: {
+            options: { mangle: false },
+            all: {
+                files: {
+                    // NOTE destination is in the Python app folder
+                    '../contrivers/static/js/contrivers.js': [
+                        'js/eq.min.js',
+                        'js/img.srcset.polyfill.js',
+                        'js/responsive-nav.min.js', 
+                        'js/contrivers-article.js', 
+                        'js/hoverIntent.js',
+                        'js/bigfoot.js',
+                    ]
+                }
+            } 
         },
 
         phantomcss: {
@@ -96,6 +116,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-hologram');
     grunt.loadNpmTasks('grunt-phantomcss');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     grunt.registerTask('bootstrap', [
         'shell:bundler',

@@ -5,6 +5,16 @@ category: Global - Typography
 name: base-typography
 ---
 
+Primary api for typography is `set-font`:
+
+@mixin set-font
+
+    __face__: must be valid key in font-families map
+    __size__: must be valid key in font-sizes map
+    __color__: must be valid key in colors map
+
+All are optional and will not output if ommited so that styles can be inherited.
+
 ## Extra Credit
 
 - [Medium 1](https://medium.com/p/8e51498c3713)
@@ -13,7 +23,6 @@ name: base-typography
 - [Typomatic](https://github.com/andrejmlinarevic/typomatic)
 - [Sassline](https://github.com/designbyjake/sassline/)
 - [Managing responsive typography with Sass](http://maketea.co.uk/2014/11/05/managing-responsive-typography-with-sass.html)
-
 
 ```html_example
 <div id='test-typography'>
@@ -38,7 +47,7 @@ $font-sizes: (
 
 // Compass Typography Variables
 $base-font-size: 16px;
-$base-line-height: 25px;
+$base-line-height: 28px;
 $rhythm-unit: 'rem';
 $rem-with-px-fallback: false;
 
@@ -72,10 +81,30 @@ $rem-with-px-fallback: false;
     }
 }
 
-@mixin set-font($face, $size: null, $color: black) {
-    @if $size == null { $size: 'delta'; }
-    font-family: $face;
-    @include adjust-font-size-to(font-size($size));
-    color: color($color);
+@mixin set-font($face: null, $size: null, $color: null) {
+    @if $face != null {
+        font-family: font($face);
+    }
+    @if $size != null {
+        @include adjust-font-size-to(font-size($size));
+    }
+    @if $color != null {
+        color: color($color);
+    }
 }
 
+@mixin title($size: gamma) {
+    @include set-font(title, $size: $size);
+    @include rhythm;
+    display: block;
+    margin: 0 auto;
+    a {
+        @include hover-link;
+    }
+    @include breakpoint(map-get($breakpoints, phone)) {
+        text-align: left;
+    }
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        text-align: center;
+    }
+}

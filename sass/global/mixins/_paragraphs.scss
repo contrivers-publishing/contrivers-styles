@@ -1,0 +1,31 @@
+/*doc
+---
+title: Paragraph
+category: Global - Paragraph
+---
+
+@mixin paragraph-styles
+    __$size__: delta
+    __$trail__: true
+
+
+@extend %paragraph-copy
+    backwards compat with paragraph-styles mixin default
+
+*/
+
+@mixin paragraph-styles($size: delta, $trailer: true) {
+    p {
+        @include set-font(serif, $size, black);
+        hyphens: manual;
+        overflow: hidden;
+        text-align: left;
+        @if $trailer == true {
+            @include trailer;
+        }
+    }
+}
+
+%paragraph-copy {
+    @include paragraph-styles;
+}

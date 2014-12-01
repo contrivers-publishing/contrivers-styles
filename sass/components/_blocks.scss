@@ -13,34 +13,28 @@ borders.
 ```html_example
 <div id='content' class=''>
 
-<div class="block" data-eq-pts="small: 0, medium: 500">
+<div class="block">
     <div class="block-header">
         <div class='block-header-button__issue'><a href=''>Political Economy</a></div> 
         <div class='block-header-button'><time datetime="2014-09-09T13:58">September 9, 2014</time></div>
         <div class='block-header-button__featured'><a href='/articles/featured/'>Featured</a></div>
         <h2 class="block-header-title article-title "><a href="">Seeing Like An App</a></h2>
-        <div class="block-header-attribution">
-            <span class="block-header-attribution-by">by</span>
-            <a class="block-header-author" href="/authors/1/">Luke Thomas Mergner</a>
-        </div>
+        <div class="block-header-attribution">by&nbsp;<a class="block-header-author" href="/authors/1/">Luke Thomas Mergner</a>&nbsp;&amp;&nbsp;<a class="block-header-author" href="/authors/2/">Pete Sinnott, Jr.</a>&nbsp;</div>
     </div>
     <div class="block-abstract">
-        Evgeny Morozov’s newest book is best read as marginalia rather than
+        <p> Evgeny Morozov’s newest book is best read as marginalia rather than
         as any systematic contribution to a social theory of technology. It
         is a book very much of the moment, focused on challenging the
         mistakes of a narrow field of interlocutors, all of whom publish,
-        like Morozov, on the fashionable topic of technology journalism. 
+        like Morozov, on the fashionable topic of technology journalism.</p>
    </div>
 </div>
-<div class="block" data-eq-pts="small: 0, medium: 500">
+<div class='block'>
    <div class="block-header">
        <div class="block-header-button__issue"><a href="#">Intellectuals</a></div>
        <div class="block-header-button"><time datetime="2014-06-02T16:52">June  2, 2014</time></div>
        <h2 class="article-title block-header-title"> <a href="#">The Essayist and the Intellectual</a> </h2>
-       <div class="block-header-attribution">
-           <span class="block-header-attribution-by">by</span>
-           <a class="block-header-author" href="">Pete Sinnott, Jr.</a>
-       </div>
+       <div class="block-header-attribution">by&nbsp;<a class="block-header-author" href="/authors/2/">Pete Sinnott, Jr.</a>&nbsp;</div>
    </div>
    <div class="block-abstract">
        <p>In this essay, Pete Sinnott, Jr. provides a
@@ -60,13 +54,15 @@ borders.
 
 
 .block {
-    @include leader();
+    @include leader;
     @include trailing-border($border-style: solid);
+    @at-root &:last-child {
+        border: none;
+    }
 }
 
 
 .block-header {
-    @include adjust-font-size-to(1em);
     @include breakpoint(map-get($breakpoints, tablet)) {
         clear: left;
     }
@@ -75,13 +71,17 @@ borders.
 
 
 .block-header-button {
-    // Only use button styles at a certain eq.js breakpoint
+    @include set-font(title, epsilon, gray);
     a {
-        @include hover-link;
+        @include unstyled-link;
+        width: 100%;
+        height: 100%;
     }
-    .block[data-eq-state='medium'] & {
+    @include breakpoint(map-get($breakpoints, phone)) {
+    }
+    @include breakpoint(map-get($breakpoints, tablet)) {
         @include make-button(gray);
-        @include background-transition(gray);
+        @include background-transition(gray, $opacity-start: 0.6, $opacity-end: 1);
         display: inline-block;
         float: right;
         margin-left: 2px;
@@ -90,8 +90,8 @@ borders.
 
 .block-header-button__featured {
     @extend .block-header-button;
-    .block[data-eq-state='medium'] & {
-        @include background-transition(primary);
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        @include background-transition(primary, $opacity-start: 0.6, $opacity-end: 1);
     }
 }
 
@@ -101,24 +101,18 @@ borders.
 
 .block-header-attribution { 
     @extend %author-copy;
-    a { // .author
-        text-decoration: none;
-    }
 }
 
 .block-header-title { 
-    @extend %title-copy;
+    @include title(beta);
     display: inline-block;
 }
 
 .block-abstract,
 %block__abstract {
-    // @include leader();
-    @include paragraph-styles(epsilon);
-}
-
-.block-image {
-    @extend %responsive-image;
+    @include paragraph-styles($trailer: false);
+    @include leader(0.5);
+    @include set-font($size: epsilon);
 }
 
 
@@ -134,37 +128,12 @@ category: Components - Blocks
 
 <div class="block__issue">
     <h3 class="block-header-title__issue"><a href="">Issue 1: Intellectuals</a></h3>
-    <div class="block" data-eq-pts="small: 0, medium: 500">
-        <div class="block-header">
-            <div class='block-header-button'><time datetime="2014-09-09T13:58">September 9, 2014</time></div>
-            <div class='block-header-button__featured'><a href='/articles/featured/'>Featured</a></div>
-            <h2 class="block-header-title article-title "><a href="">Seeing Like An App</a></h2>
-            <div class="block-header-attribution">
-                <span class="block-header-attribution-by">by</span>
-                <a class="block-header-author" href="/authors/1/">Luke Thomas Mergner</a>
-            </div>
-        </div>
-        <div class="block-abstract">
-            Evgeny Morozov’s newest book is best read as marginalia rather than
-            as any systematic contribution to a social theory of technology. It
-            is a book very much of the moment, focused on challenging the
-            mistakes of a narrow field of interlocutors, all of whom publish,
-            like Morozov, on the fashionable topic of technology journalism. 
-       </div>
-    </div>
 </div>
 
 </div>
 ```
 
 */
-
-.issues-page {
-    @include rhythm;
-    @include breakpoint(map-get($breakpoints, window)) {
-        @include span(9 first);
-    }
-}
 
 .block__issue {
     @extend .block;
@@ -178,7 +147,102 @@ category: Components - Blocks
     @include trailer;
     a { @include hover-link; }
     display: block;
-    width: 100%;
-    text-align: center;
    
 }
+
+/*doc 
+---
+title: Author Block
+category: Components - Blocks
+---
+
+```html_example
+<div class="block__author ">
+    <div class="author-name"><a href="/authors/1/">Luke Thomas Mergner</a></div>
+    <div class="author-twitter"><a href="http://www.twitter.com/lmergner"><i class="fa fa-twitter"></i> @lmergner</a></div>
+    <div class="author-bio"></div>
+    <div class="author-articles">
+        <div class="block">
+            <div class="block-header">
+                <div class="block-header-button"><time datetime="2014-09-09T13:58">September  9, 2014</time></div>
+                <div class="block-header-title"><a href="/reviews/6/">Seeing Like An App</a></div>
+            </div>
+            <div class="block-abstract"><p>Evgeny Morozov’s newest book is best read as marginalia rather than as any systematic contribution to a social theory of technology. It is a book very much of the moment, focused on challenging the mistakes of a narrow field of interlocutors, all of whom publish, like Morozov, on the fashionable topic of technology journalism. </p></div>
+            </div>
+        <div class="block">
+    <div class="block-header">
+    <div class="block-header-button__issue"><a href="/issues/1/">Intellectuals</a></div>
+    <div class="block-header-button"><time datetime="2014-06-10T15:06">June 10, 2014</time></div>
+
+    <div class="block-header-title"><a href="/articles/4/">Further Reading</a></div>
+
+    </div>
+    <div class="block-abstract"><p>A bibliographical essay on several recent conversations related to the theme of intellectual production and responsibility.</p></div>
+    </div><div class="block">
+    <div class="block-header">
+    <div class="block-header-button__issue"><a href="/issues/1/">Intellectuals</a></div>
+    <div class="block-header-button"><time datetime="2014-06-02T16:50">June  2, 2014</time></div>
+
+    <div class="block-header-title"><a href="/articles/1/">On the Intellectual Question</a></div>
+
+    </div>
+<div class="block-abstract"><p>Through a discussion of two important texts by Kant and Lenin, Luke Mergner explores how our ideas about public intellectuals are tied to different models of social and political authority. The public sphere is defined by the tension between democracy and intellectual authority. How can anyone claiming the role of the public intellectual find alternative critical languages when the egalitarian democratic spaces of the public sphere are withering away? </p></div>
+</div>
+</div>
+
+```
+
+*/
+
+.block__author {
+    .author-name {
+        text-align: center;
+        a {
+            @include hover-link;
+            @include set-font($size: beta, $color: black);
+        }
+    }
+    .author-bio {
+        @extend %paragraph-copy;
+    }
+    .author-twitter {
+        text-align: center;
+        a {
+            @include hover-link;
+            @include set-font($size: gamma, $color: black);
+        }
+    }
+}
+
+/*doc
+---
+title: Tag Block
+category: Components - Blocks
+---
+
+```html_example
+<div class="block__tag">
+    <a href="">1. Intellectuals: 4 articles</a>
+</div>
+
+<div class="block__tag">
+    <a href="">2. Technology:       1 articles</a>
+</div>
+```
+
+*/
+
+.block__tag {
+    @include gallery(6);
+    @include rhythm(0.5);
+    @include set-font($size: gamma);
+    a {
+        @include hover-link;
+        display: block;
+        height: 100%;
+        weight: 100%;
+    }
+    span { margin-right: 5px; }
+}
+
+
