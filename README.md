@@ -47,13 +47,13 @@ Review](http://www.contrivers.org).
     you intend to use the visual regression tool described below. On OSX, you 
     can `brew install phantomjs`.
 
-- Run the grunt task that will install the development dependencies via grunt and bower.
+7. Run the grunt task that will install the development dependencies via grunt and bower.
 
     ```
     $ grunt bootstrap
     ```
 
-- Create the [Hologram](https://github.com/trulia/hologram)
+8. Create the [Hologram](https://github.com/trulia/hologram)
   [Styleguide](http://localhost:9001) with the default compass task, which runs
   the node connect server, a compass compiler watch task, and the hologram
   build watch task. If you install the [live reload](http://livereload.com)
@@ -116,16 +116,15 @@ necessary libraries.
 ####v0.2
 
 - revert v2 bigfoot styles to contrivers styles @bugfix
-- Article Aside:  Rethink styles like pagination? 
+- Article Aside with meta info and navigation
 - Author print list is not putting the ampersand between two names. @bugfix
 - issue page styles, especially issue-block header @bugfix
 - Support page @v0.2
 - Search page @v0.2
 - Masthead styles @bugfix
+- generic markdown styles
 - Block: Any way to calculate the [tags] and wrap the title without clearing?
-- Author printing:  spaces between 'by' spans
 - Author page / cards
-- line spacing between footer-nav items is too much. @bugfix
 
 #### v0.3
 - refactoring @feature

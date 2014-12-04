@@ -70,7 +70,7 @@ module.exports = function (grunt) {
                 command: 'bower install'
             },
             copy: {
-                command: 'cp -R ./stylesheets/ ../contrivers/static/css/'
+                command: 'cp -R ./stylesheets/ ../contrivers/static/css/ && cp -R ./images/ ../contrivers/static/images/'
             }
         },
 
