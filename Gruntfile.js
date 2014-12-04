@@ -121,13 +121,19 @@ module.exports = function (grunt) {
     grunt.registerTask('bootstrap', [
         'shell:bundler',
         'shell:bower',
-        'compass:dev',
-        'hologram',
-        'connect',
-        'watch'
+    ]);
+
+    grunt.registerTask('make-and-copy', [
+        'bootstrap',
+        'shell:bundler',
+        'shell:bower',
+        'compass:dist',
+        'uglify',
+        'shell:copy'
     ]);
 
     grunt.registerTask('default', [
+        'bootstrap',
         'compass:dev',
         'hologram',
         'connect',
