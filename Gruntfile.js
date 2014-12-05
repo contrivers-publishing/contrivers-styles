@@ -14,10 +14,16 @@ module.exports = function (grunt) {
                 tasks: ['compass:dev', 'shell:copy'],
             },
 
+            js: {
+                files: ['js/{,**/}*.js'],
+                tasks: ['uglify'],
+            },
+
             hologram: {
                 files: ['sass/{,**/}*.scss'],
                 tasks: ['hologram'],
             },
+
             livereload: {
                 options: { livereload: true },
                 files: ['stylesheets/{,**/}*.css', 'hologram/**/*'],
@@ -70,7 +76,11 @@ module.exports = function (grunt) {
                 command: 'bower install'
             },
             copy: {
-                command: 'cp -R ./stylesheets/ ../contrivers/static/css/ && cp -R ./images/ ../contrivers/static/images/'
+                command: [
+                    'cp -R stylesheets/ ../contrivers/static/css/',
+                    'cp -R images/ ../contrivers/static/images/',
+                    'cp -R fonts/ ../contrivers/static/fonts/'
+                ].join(' && ')
             }
         },
 
