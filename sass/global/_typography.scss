@@ -93,7 +93,7 @@ $rem-with-px-fallback: false;
     }
 }
 
-@mixin title($size: gamma) {
+@mixin title($size: gamma, $responsive: true) {
     @include set-font(title, $size: $size);
     @include rhythm;
     display: block;
@@ -101,10 +101,12 @@ $rem-with-px-fallback: false;
     a {
         @include hover-link;
     }
-    @include breakpoint(map-get($breakpoints, phone)) {
-        text-align: left;
-    }
-    @include breakpoint(map-get($breakpoints, tablet)) {
-        text-align: center;
+    @if $responsive {
+        @include breakpoint(map-get($breakpoints, phone)) {
+            text-align: left;
+        }
+        @include breakpoint(map-get($breakpoints, tablet)) {
+            text-align: center;
+        }
     }
 }

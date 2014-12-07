@@ -17,16 +17,13 @@ credits: [Micah Godbolt](https://github.com/micahgodbolt/sassbitesdemo/blob/mast
 
 @mixin make-button($btn-color, $btn-text-color: white) {
     @include align-items(center);
-    // @include background-transition($btn-color);
     @include border-radius;
     color: color($btn-text-color);
     background-color: color($btn-color);
     display: inline-block;
     
     border: none; // fixes elements with a border set
-    // font-size: pem(16);
     padding: 0.75em;
-    // font-weight: bold;
     text-decoration: none;
 
     a {

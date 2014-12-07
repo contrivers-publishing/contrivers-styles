@@ -15,31 +15,28 @@ For article styles, see `.article-body`
 
 
 %page, 
+#content,
 .page {
+    @include full;
+    @include breakpoint(map-get($breakpoints, tablet)) {
+    }
     @include breakpoint(map-get($breakpoints, window)) {
-        @include rhythm;
         @include span(map-get($susy, columns) - $sidebar-col-width first);
+        @include leader;
     }
     // Markdown Styles
-    @for $num from 1 through 5 {
-        h#{$num} {
-            $key: nth(map-keys($font-sizes), $num);
-            @include title($key);
-            @include trailer;
-        }
-    }   
 }
 
 @each $page in $module-pages {
-    @debug "styling #{$page}-page";
     .#{$page}-page {
         @extend %page;
     }
 }
 
-article-page {
+.article-page {
+    @include full;
     article {
-        max-width: span($article-page-width);
+        max-width: $article-page-width;
         margin: 0 auto;
     }
 }

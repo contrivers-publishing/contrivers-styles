@@ -60,12 +60,7 @@ The article body.
     blockquote {
         margin-left: 0;
         margin-right: 0;
-        @extend %bleeding;
+        // @include bleed-x(gutter());
         @include apply-side-rhythm-border(left, $width: 10px, $border-style: solid color(primary) );
-        // @include breakpoint(map-get($breakpoints, tablet)) {
-        //     @include pre(1);
-        //     // margin-left: 2em;
-        //     // margin-right: 2em;
-        // }
     }
 }

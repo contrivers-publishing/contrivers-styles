@@ -28,6 +28,7 @@ $colors: (
     primary-light: #FFAAAA,
     primary-dark: #550000,
     secondary: #FFD69C,
+    secondary__opacity: rgba(#FFD69C, 0.6),
     tertiary: #FFF8DC, 
     green: #319b55,
     blue: #2d6f84,
@@ -95,12 +96,12 @@ $base-font: (
     font-weight: 400,
 );
 
-
 $susy: (
     global-box-sizing: border-box,
     columns: 12,
     gutters: 1/2,
-    gutter-positon: split,
+    gutter-position: split,
+    container: 960px,
 );
 
 $breakpoints: (
@@ -115,7 +116,7 @@ $breakpoints: (
 // 
 $container-width: 960px;
 $sidebar-col-width: 3;
-$article-page-width:  span(8);
+$article-page-width:  600px;
 $module_pages: index, masthead, support, archive, issues, author, error, tags, search, article;
 $default_border: 1px solid map-get($colors, gray);
 $default-border-radius: 2px; // default for Compass border-radius mixin

@@ -45,7 +45,7 @@ name: layout-footer
 
 
 .contrivers-footer { 
-    @include bleed(0 gutter() 0 gutter());
+    // @include bleed(0 gutter() 0 gutter());
     @include box-shadow;
     @include rhythm-padding;
     @include set-font(serif, delta, white);
@@ -63,6 +63,11 @@ name: layout-footer
     }
     .footer-nav {
         @include footer-grid(first);
+        // ul {
+        //     @include breakpoint(map-get($breakpoints, tablet)) {
+        //         @include span(3);
+        //     }
+        // }
     }
     @include breakpoint(map-get($breakpoints, window)) {
         // @include bleed-x(300px);

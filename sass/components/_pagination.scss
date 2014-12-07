@@ -26,10 +26,16 @@ Some queries are returned with paginated results.
 
 */
 
+$pagination-breakpoint: 600px !default;
+$pagination-background: color(secondary__opacity) !default;
+
+
 .pagination {
     // Appears at the top of the archive pages
     @include clearfix;
-    background-color: rgba(color(secondary), 0.6);
+    margin: 0 auto;
+    @include trailer;
+    background-color: $pagination-background;
     @include breakpoint(map-get($breakpoints, phone)) {
         @include bleed-x(gutter());
     }
@@ -39,7 +45,6 @@ Some queries are returned with paginated results.
     }
     @include breakpoint(map-get($breakpoints, window)) {
         @include border-radius;
-        // @include box-shadow;
         border-bottom: none;
         border: $default-border;
     }
@@ -49,8 +54,7 @@ Some queries are returned with paginated results.
     @include unstyled-link;
     a { color: color(gray); }
 
-    .fa { font-size: 2em; }
-    margin: 0 auto;
+    .fa { font-size: 3em; }
     text-align: center;
     padding: .5em 0;
 
@@ -62,22 +66,13 @@ Some queries are returned with paginated results.
 .pagination-element__search {
     @extend %pagination-element;
     display: none;
-    @include breakpoint(600px) {
+    @include breakpoint($pagination-breakpoint) {
+        display: block;
         @include span(6);
-        display: block;
     }
-    input[type=search] {
-        @include adjust-font-size-to(font-size(delta));
-        line-height: 25px;
-        height: 30px;
-
-        @include border-radius;
-        color: color(black);
-        display: block;
-        border: $default-border;
+    input {
         text-align: center;
         width: 100%;
-        margin: 0 auto;
     }
 }
 

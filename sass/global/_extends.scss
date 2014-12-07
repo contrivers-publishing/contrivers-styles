@@ -1,27 +1,6 @@
 
 /*doc
 ---
-title: Bleeding
-category: Global - Extends
----
-%bleeding
-
-```html_example
-<div class='container' style='border: 1px solid black;'>
-    <div class='bleeding' style='color: #fff; height: 25px; background-color: gray;'>Bleeding div</div>
-</div>
-```
-
-*/
-
-.bleeding,
-%bleeding {
-    @warn Should replace extend with bleed mixin;
-    @include bleed-x(gutter());
-}
-
-/*doc
----
 title: Responsive Image
 category: Global - Extends
 ---

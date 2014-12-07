@@ -37,8 +37,7 @@ Main header styles.
 */
 
 header.contrivers-header {
-    // @extend %bleeding;
-    @include bleed(0 gutter() 0 gutter());
+    // @include bleed(0 gutter() 0 gutter());
     @include clearfix;
     @include box-shadow;
     background-color: color(primary);
@@ -79,7 +78,15 @@ header.contrivers-header {
 }
 
 %nav-item {
-    @include set-font($size: beta);
+    @include breakpoint(map-get($breakpoints, phone)) {
+        @include set-font($size: beta);
+    }
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        @include set-font($size: beta);
+    }
+    @include breakpoint(map-get($breakpoints, window)) {
+        @include set-font($size: beta);
+    }
     text-align: center;
     a { 
         display: block; 

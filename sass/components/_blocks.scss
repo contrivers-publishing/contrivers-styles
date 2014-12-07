@@ -141,13 +141,10 @@ category: Components - Blocks
 }
 
 .block-header-title__issue {
-    @extend .block-header-title;
-    @include make-button(primary);
-    @include background-transition(primary);
+    @include set-font($size: alpha);
     @include trailer;
     a { @include hover-link; }
     display: block;
-   
 }
 
 /*doc 

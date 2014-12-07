@@ -12,6 +12,9 @@ module.exports = function (grunt) {
             compass: {
                 files: ['sass/{,**/}*.scss'],
                 tasks: ['compass:dev', 'shell:copy'],
+                options: {
+                    delayBounce: 2000
+                }
             },
 
             js: {
@@ -93,7 +96,7 @@ module.exports = function (grunt) {
                         'js/eq.min.js',
                         'js/img.srcset.polyfill.js',
                         'js/responsive-nav.min.js', 
-                        'js/contrivers-article.js', 
+                        // 'js/contrivers-article.js', 
                         'js/hoverIntent.js',
                         'js/bigfoot.js',
                     ]

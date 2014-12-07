@@ -17,13 +17,15 @@ html {
     @each $k, $v in $base-font {
         $k: $v;
     }
-    margin-left: 2px;
-    margin-right: 2px;
-    @include breakpoint(map-get($breakpoints, tablet)) {
-        margin-right: gutter();
-        margin-left: gutter();
-    }
+    @for $num from 1 through 5 {
+        h#{$num} {
+            $key: nth(map-keys($font-sizes), $num);
+            @include title($key);
+            @include trailer;
+        }
+    }   
 }
+
 
 /*doc 
 ---

@@ -7,3 +7,4 @@ stylesheets
 phantomcss/results
 .sass-cache
 .DS_Store
+js/contrivers.js
