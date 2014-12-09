@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Dropdown Menu
-category: Components - Menu
+category: Components - Dropdown Menu
 ---
 
 ```html_example
@@ -26,14 +26,6 @@ category: Components - Menu
                 <li><a href=''>Another Respondee</a></li>
             </ul>
         </li>
-        <!-- <li class='sharing-icon'><i class='fa fa-share-square'></i>
-            <ul class=''> -->
-                <li><a href=""><i class='fa fa-twitter'></i></a></li>
-                <li><a href=""><i class='fa fa-facebook'></i></a></li>
-                <li><a href='' alt='Instapaper'><i class='fa fa-instapaper'>I</i></a></li>
-                <li><a href='' alt='Download ebook'><i class='fa fa-book'></i></a></li>
-        <!--    </ul>
-        </li> -->
     </ul>
 </div>
 
@@ -41,25 +33,20 @@ category: Components - Menu
 
 */
 
-$menu-bg-color: color(gray-light) !default;
-$menu-color: color(gray) !default;
 
 .dropdown-menu {
-    background-color: color($menu-bg-color); 
-    font-family: font(title);
-    font-size: 1.5em;
-    color: color($menu-color);
     white-space: nowrap;
     text-overflow: ellipsis;
     list-style: none;
+    width: 100%;
+    text-align: left;
 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 
-    @include border-radius;
-
+    .dropdown-menu-title,
     .menu-title {
         @extend %bold-copy;
         transition: none;
@@ -70,50 +57,34 @@ $menu-color: color(gray) !default;
         display: block; 
         @include unstyled-link;
     }
-    
-    .fa-instapaper {
-        font-family: font(serif);
-        @extend %bold-copy;
-    }
 
     li {
-        background-color: color($menu-bg-color); 
         text-align: left;
         position: relative;
-        float: left;
-        padding: 0.25em;
-    }
+        padding: 0.25em gutter();
 
-    li:not(.menu-title) {
-        &:hover,
-        &:focus {
-            background-color: darken($menu-bg-color, 10%);
-            @include single-transition('background-color', 1s, ease-out);
-        }
-
+        & a:hover ul,
         &:hover ul,
         &:focus ul {
             left: 0;
         }
 
-        & a:hover ul {
-            left: 0;
-        }
-
         ul {
-            @include clearfix;
+            @include border-radius;
             font-size: 1em;
-            background-color: color($menu-bg-color); 
             position: absolute;
             left: -9999px;
-            margin-top: 6px;
-            z-index: 100;
+            margin-top: 7px;
             li {
                 font-size: 0.75em;
-                width: 100%;
                 display: block;
-                border-right: none;
                 border-top: $default-border;
+                z-index: 9999;
+
+                &:first-of-type {
+                    border-top: none;
+                }
+
             }
         }
     }

@@ -1,7 +1,7 @@
 /*doc
 ---
 title: pagination
-category: Components - Pagination
+category: Layout - Pagination
 name: components-pagination
 ---
 
@@ -27,14 +27,14 @@ Some queries are returned with paginated results.
 */
 
 $pagination-breakpoint: 600px !default;
-$pagination-background: color(secondary__opacity) !default;
+$pagination-background: rgba(color(secondary), $default-opacity) !default;
 
 
 .pagination {
     // Appears at the top of the archive pages
     @include clearfix;
-    margin: 0 auto;
     @include trailer;
+    margin: 0 auto;
     background-color: $pagination-background;
     @include breakpoint(map-get($breakpoints, phone)) {
         @include bleed-x(gutter());

@@ -12,9 +12,9 @@ module.exports = function (grunt) {
             compass: {
                 files: ['sass/{,**/}*.scss'],
                 tasks: ['compass:dev', 'shell:copy'],
-                options: {
-                    delayBounce: 2000
-                }
+                // options: {
+                    // delayBounce: 2000
+                // }
             },
 
             js: {
@@ -81,8 +81,8 @@ module.exports = function (grunt) {
             copy: {
                 command: [
                     'cp -R stylesheets/ ../contrivers/static/css/',
-                    'cp -R images/ ../contrivers/static/images/',
-                    'cp -R fonts/ ../contrivers/static/fonts/'
+                    'cp -R images/      ../contrivers/static/images/',
+                    'cp -R fonts/       ../contrivers/static/fonts/'
                 ].join(' && ')
             }
         },

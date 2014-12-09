@@ -57,3 +57,9 @@ the jinja template before the page is returned. On the client side, they are for
     vertical-align: super;
     text-decoration: none;
 }
+
+.bigfoot-footnote__content {
+    p {
+        @include set-font(serif, epsilon, black);
+    }
+}

@@ -12,5 +12,10 @@
 @import 'base/**/*';
 @import 'components/**/*';
 @import 'layout/**/*';
-@import 'contrib/responsive-nav/responsive-nav';
 
+// 3rd party libs
+@import 'contrib/responsive-nav/responsive-nav';
+@import 'contrib/eq.js/eq'; 
+
+// Full size examples for hologram
+@import 'examples/**/*';

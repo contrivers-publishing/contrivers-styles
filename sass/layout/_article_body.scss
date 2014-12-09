@@ -38,6 +38,7 @@ The article body.
 .article-body {
 
     @extend %paragraph-copy;
+    overflow: visible;
 
 
     .epigram, 
