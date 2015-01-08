@@ -63,6 +63,7 @@ money goes to paying writers a fair compensation for their efforts.
 
 #mc_embed_signup {
     @include colored-box(color(gray-light));
+    @include leader;
 
     p,
     .form-blurb {
@@ -99,6 +100,7 @@ money goes to paying writers a fair compensation for their efforts.
 
 #fundraising {
     @include colored-box(color(secondary));
+    @include leader;
 
     p,
     .fundraising-blurb {
@@ -142,7 +144,7 @@ money goes to paying writers a fair compensation for their efforts.
         }
 
         @include breakpoint(map-get($breakpoints, tablet)) {
-            @include gallery(3);
+            @include gallery(4);
         }
     }
 }

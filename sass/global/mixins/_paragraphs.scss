@@ -18,7 +18,7 @@ category: Global - Paragraph
     p {
         @include set-font(serif, $size, black);
         hyphens: manual;
-        // overflow: hidden;
+        text-overflow: hidden;
         text-align: left;
         @if $trailer == true {
             @include trailer;

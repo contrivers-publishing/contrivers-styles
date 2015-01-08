@@ -15,21 +15,20 @@ For article styles, see `.article-body`
 
 
 %page, 
-#content,
 .page {
     @include full;
     @include breakpoint(map-get($breakpoints, tablet)) {
     }
     @include breakpoint(map-get($breakpoints, window)) {
         @include span(map-get($susy, columns) - $sidebar-col-width first);
-        @include leader;
     }
-    // Markdown Styles
+    .block__issue {
+    }
 }
 
-@each $page in $module-pages {
-    .#{$page}-page {
-        @extend %page;
+.index-page {
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        @include leader;
     }
 }
 
@@ -41,4 +40,12 @@ For article styles, see `.article-body`
     }
 }
 
+.tags-page,
+.static-page {
+    @include leader;
+}
 
+.author-page,
+.authors-page {
+    @include leader;
+}

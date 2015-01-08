@@ -27,6 +27,7 @@ credits: [Micah Godbolt](https://github.com/micahgodbolt/sassbitesdemo/blob/mast
     text-decoration: none;
 
     a {
+        display: block;
         @include unstyled-link;
         color: $btn-text-color;
     }

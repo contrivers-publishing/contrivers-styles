@@ -81,7 +81,7 @@ by <span class="author"><a href=''>Luke Thomas Mergner</a>, <a href=''>Peter Sin
 
 %author-copy, 
 .author {
-    @include set-font(serif, $color: black);
+    @include set-font($face: serif, $color: 'black');
     a {
         @include unstyled-link;
     }

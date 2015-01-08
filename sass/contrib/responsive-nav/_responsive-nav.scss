@@ -1,7 +1,5 @@
 /*! responsive-nav.js 1.0.32 by @viljamis */
 
-@debug "Compiling contrib/responsive-nav.scss";
-
 .nav-collapse {
     ul {
       width: 100%;
@@ -12,6 +10,11 @@
     // Specific styling for Contrivers'
     // Two <li> on last row
 
+}
+
+.nav-toggle {
+    float: right;
+    margin-right: 5px;
 }
 
 .js .nav-collapse {

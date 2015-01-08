@@ -12,9 +12,6 @@ module.exports = function (grunt) {
             compass: {
                 files: ['sass/{,**/}*.scss'],
                 tasks: ['compass:dev', 'shell:copy'],
-                // options: {
-                    // delayBounce: 2000
-                // }
             },
 
             js: {
@@ -78,6 +75,9 @@ module.exports = function (grunt) {
             bower: {
                 command: 'bower install'
             },
+            rm_map: {
+                command: 'rm stylesheets/*.map'
+            },
             copy: {
                 command: [
                     'cp -R stylesheets/ ../contrivers/static/css/',
@@ -88,17 +88,11 @@ module.exports = function (grunt) {
         },
 
         uglify: {
-            options: { mangle: false },
+            options: { mangle: false, beautify: true },
             all: {
                 files: {
                     // NOTE destination is in the Python app folder
                     '../contrivers/static/js/contrivers.js': [
-                        'js/eq.min.js',
-                        'js/img.srcset.polyfill.js',
-                        'js/responsive-nav.min.js', 
-                        // 'js/contrivers-article.js', 
-                        'js/hoverIntent.js',
-                        'js/bigfoot.js',
                     ]
                 }
             } 
@@ -151,5 +145,11 @@ module.exports = function (grunt) {
         'hologram',
         'connect',
         'watch'
+    ]);
+
+    grunt.registerTask('dist', [
+        // 'shell:rm_map',
+        'compass:dist',
+        'shell:copy'
     ]);
 };

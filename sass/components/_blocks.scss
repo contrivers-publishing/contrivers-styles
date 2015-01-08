@@ -54,10 +54,12 @@ borders.
 
 
 .block {
-    @include leader;
     @include trailing-border($border-style: solid);
-    @at-root &:last-child {
+    &:last-child {
         border: none;
+    }
+    &:not(:first-of-type) {
+        @include leader;
     }
 }
 
@@ -192,24 +194,41 @@ category: Components - Blocks
 */
 
 .block__author {
-    .author-name {
-        text-align: center;
-        a {
-            @include hover-link;
-            @include set-font($size: beta, $color: black);
+    @extend .block;
+
+    .block__author-header {
+        @include set-font($size: gamma);
+        text-align: left;
+        @include breakpoint(map-get($breakpoints, tablet)) {
+            text-align: center;
         }
     }
+
+    .author-name {
+        a { @include hover-link; }
+        display: inline-block;
+        @include breakpoint(map-get($breakpoints, tablet)) {
+            @include set-font($size: beta);
+            display: block;
+        }
+    }
+
+    .author-twitter,
+    .author-rss {
+        display: inline-block;
+        a {
+            @include unstyled-link;
+        }
+        @include breakpoint(map-get($breakpoints, tablet)) {
+            font-size: 1.25em;
+        }
+    }
+
     .author-bio {
         @extend %paragraph-copy;
     }
-    .author-twitter {
-        text-align: center;
-        a {
-            @include hover-link;
-            @include set-font($size: gamma, $color: black);
-        }
-    }
 }
+
 
 /*doc
 ---
@@ -230,16 +249,10 @@ category: Components - Blocks
 */
 
 .block__tag {
-    @include gallery(6);
-    @include rhythm(0.5);
-    @include set-font($size: gamma);
-    a {
-        @include hover-link;
-        display: block;
-        height: 100%;
-        weight: 100%;
+    @extend .block;
+    .block__tag-title {
+        @include clearfix;
+        @include full;
+        text-align: center;
     }
-    span { margin-right: 5px; }
 }
-
-

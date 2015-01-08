@@ -60,6 +60,7 @@ $menu-color: color(gray) !default;
 
 .article-menu {
     @include trailer;
+    @include dropdown-menu;
     font-family: font(serif);
     font-size: 1.5em;
     color: $menu-color;
