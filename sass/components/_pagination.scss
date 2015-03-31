@@ -41,12 +41,11 @@ $pagination-background: rgba(color(secondary), $default-opacity) !default;
     }
     @include breakpoint(map-get($breakpoints, tablet) map-get($breakpoints, window)) {
         @include bleed-x(gutter());
-        @include leader;
         @include trailer;
         border-bottom: $default-border;
     }
     @include breakpoint(map-get($breakpoints, window)) {
-        @include leader;
+        @include rhythm;
         @include border-radius;
         border-bottom: none;
         border: $default-border;

@@ -63,6 +63,7 @@ name: layout-footer
     }
     .footer-nav {
         @include footer-grid(first);
+        @include trailer;
         // ul {
         //     @include breakpoint(map-get($breakpoints, tablet)) {
         //         @include span(3);

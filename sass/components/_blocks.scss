@@ -139,11 +139,11 @@ category: Components - Blocks
 
 .block__issue {
     @extend .block;
-    border: none;
+    @include leader;
 }
 
 .block-header-title__issue {
-    @include set-font($size: alpha);
+//    @include set-font($size: alpha);
     @include trailer;
     a { @include hover-link; }
     display: block;
@@ -204,28 +204,36 @@ category: Components - Blocks
         }
     }
 
+    .block__author-divider {
+        text-align: center;
+        padding: 1em 0; 
+        color: color(gray);
+    }
+
     .author-name {
         a { @include hover-link; }
-        display: inline-block;
         @include breakpoint(map-get($breakpoints, tablet)) {
             @include set-font($size: beta);
-            display: block;
         }
     }
 
     .author-twitter,
     .author-rss {
         display: inline-block;
+        color: color(gray);
+        padding-right: 0.25em;
         a {
             @include unstyled-link;
         }
         @include breakpoint(map-get($breakpoints, tablet)) {
             font-size: 1.25em;
+            padding: 0 0.25em;
         }
     }
 
     .author-bio {
-        @extend %paragraph-copy;
+        @include paragraph-styles($trailer: false);
+        @include leader;
     }
 }
 
