@@ -3,7 +3,6 @@
 require "susy"
 require "sass-globbing"
 require "sassy-maps"
-require "bourbon"
 require "breakpoint"
 
 output_style = :expanded   # :expanded or :nested or :compact or :compressed
