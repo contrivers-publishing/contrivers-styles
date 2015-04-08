@@ -5,8 +5,8 @@ require "sass-globbing"
 require "sassy-maps"
 require "breakpoint"
 
-output_style = :expanded   # :expanded or :nested or :compact or :compressed
-line_comments = true
+output_style = :expanded # :expanded or :nested or :compact or :compressed
+line_comments = false
 preferred_syntax = :scss
 
 sass_dir = 'sass'

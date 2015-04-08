@@ -9,3 +9,5 @@ phantomcss/results
 .DS_Store
 js/contrivers.js
 *.css
+results
+screenshots

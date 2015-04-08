@@ -27,10 +27,10 @@ dependencies:
  # index: README.md
 
 # List all css to include for the styleguide render examples (path from styleguide directory)
-css_include: 
+css_include:
   - ../stylesheets/screen.css
-  - ../stylesheets/contrib/font-awesome/font-awesome.css
-  - ../stylesheets/contrib/bigfoot/bigfoot-contrivers.css
+  - ../stylesheets/vendors/font-awesome/font-awesome.css
+  - ../stylesheets/vendors/bigfoot/bigfoot.css
 
 # List all js to include for the styleguide render examples (path from styleguide directory)
 js_include:
