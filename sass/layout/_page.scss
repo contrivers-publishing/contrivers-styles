@@ -11,10 +11,10 @@ For article styles, see `.article-body`
 */
 
 
-// $module-pages defined in global/_variables 
+// $module-pages defined in global/_variables
 
 
-%page, 
+%page,
 .page {
     @include full;
     @include breakpoint(map-get($breakpoints, tablet)) {
@@ -48,4 +48,23 @@ For article styles, see `.article-body`
 .author-page,
 .authors-page {
     @include leader;
+}
+
+@for $num from 1 through 5 {
+  h#{$num} {
+    @include trailer;
+    @include rhythm;
+    @include set-font(title, $size: nth(map-keys($font-sizes), $num));
+    display: block;
+    margin: 0 auto;
+    a {
+        @include hover-link;
+    }
+    @include breakpoint(map-get($breakpoints, phone)) {
+        text-align: left;
+    }
+    @include breakpoint(map-get($breakpoints, tablet)) {
+        text-align: center;
+    }
+  }
 }

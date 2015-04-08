@@ -14,16 +14,6 @@ em,
 
 html {
     @include box-sizing('border-box');
-    // @each $k, $v in $base-font {
-    //     $k: $v;
-    // }
-    // @for $num from 1 through 5 {
-    //     h#{$num} {
-    //         $key: nth(map-keys($font-sizes), $num);
-    //         @include title($key);
-    //         @include trailer;
-    //     }
-    // }
 }
 
 h1 {
@@ -64,7 +54,8 @@ figcaption {
 
 p {
   font-family: Georgia, serif;
-  font-size: 16;
+  font-size: 16px;
   color: black;
   line-height: 1.5;
+  margin-bottom: 24px;
 }

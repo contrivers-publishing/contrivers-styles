@@ -18,7 +18,7 @@ module.exports = function(grunt) {
           'cp -R stylesheets/ ../contrivers/static/css/',
           'cp -R images/      ../contrivers/static/images/',
           'cp -R fonts/       ../contrivers/static/fonts/',
-          'cp stylesheets/marked.css ~/Dropbox/Mergner-Sinnott\ Shares/Journal/contrivers-marked.css'
+          // 'cp stylesheets/marked.css ~/Dropbox/Mergner-Sinnott\ Shares/Journal/contrivers-marked.css'
         ].join(' && ')
       }
     },

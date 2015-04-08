@@ -62,12 +62,13 @@ $rem-with-px-fallback: false;
 @include establish-baseline;
 
 
-//  sass/global/_variables.scss  
+//  sass/global/_variables.scss
 //  $link-colors for definition
 a {
-    color: map-get($link-colors, normal);
-    &:visited { color: map-get($link-colors, visited); }
-    &:focus { color: map-get($link-colors, focus); }
-    &:hover { color: map-get($link-colors, hover); }
-    &:active { color: map-get($link-colors, active); }
+  color: map-get($link-colors, normal);
+  &:visited { color: map-get($link-colors, visited); }
+  &:focus { color: map-get($link-colors, focus); }
+  &:hover { color: map-get($link-colors, hover); }
+  &:active { color: map-get($link-colors, active); }
 }
+
