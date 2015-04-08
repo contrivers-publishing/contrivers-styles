@@ -10,17 +10,17 @@ name: variables
 
 | Variable Name | Swatch |
 |---------------|--------|
-| primary    | <div style="background: #D45D43; height: 30px;"></div> | 
-| primary-light| <div style="background: #FFAAAA; height: 30px;"></div> | 
-| primary-dark| <div style="background: #550000; height: 30px;"></div> | 
+| primary    | <div style="background: #D45D43; height: 30px;"></div> |
+| primary-light| <div style="background: #FFAAAA; height: 30px;"></div> |
+| primary-dark| <div style="background: #550000; height: 30px;"></div> |
 | secondary  | <div style="background: #ffe5c0; height: 30px"></div> |
-| tertiary   | <div style="background: #FFF8DC; height: 30px"></div> | 
-| green      | <div style='background: #319b55; height: 30px'></div> | 
-| blue       | <div style='background: #2d6f84; height: 30px'></div> | 
-| black      | <div style="background: #222222; height: 30px"></div> | 
-| gray       | <div style="background: #555566; height: 30px"></div> | 
-| gray-light | <div style='background: #eeeeee; height: 30px'></div> | 
-| white      | <div style="background: #ffffff; height: 30px"></div> | 
+| tertiary   | <div style="background: #FFF8DC; height: 30px"></div> |
+| green      | <div style='background: #319b55; height: 30px'></div> |
+| blue       | <div style='background: #2d6f84; height: 30px'></div> |
+| black      | <div style="background: #222222; height: 30px"></div> |
+| gray       | <div style="background: #555566; height: 30px"></div> |
+| gray-light | <div style='background: #eeeeee; height: 30px'></div> |
+| white      | <div style="background: #ffffff; height: 30px"></div> |
 */
 
 $default-opacity: 0.6;
@@ -29,7 +29,7 @@ $colors: (
     primary-light: #FFAAAA,
     primary-dark: #550000,
     secondary: #Ffe5c0,
-    tertiary: #FFF8DC, 
+    tertiary: #FFF8DC,
     green: #319b55,
     blue: #2d6f84,
     black: #222222, // #29261c,
@@ -39,7 +39,7 @@ $colors: (
 );
 
 
-/*doc 
+/*doc
 ---
 title: Link Colors
 category: Global - Variables
@@ -63,39 +63,6 @@ $link-colors: (
     focus: #901F0A,
 );
 
-/*doc 
----
-title: Fonts
-category: Global - Variables
-name: fonts
----
-
-```html_example
-<p style='font-family: "Droid Serif"'>This is the Droid Serif font.</p>
-<p style='font-family: "Lora"'>This is the Lora font, which we use for titles and headers.</p>
-```
-
-*/
-
-
-@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic);
-
-$font-families: (
-    serif: ("Droid Serif", Georgia, serif),
-    sans-serif: ("Droid Sans", sans-serif),
-    title: ("Lora", Georgia, serif),
-);
-
-$base-font: (
-    font-family: map-get($font-families, serif),
-    line-height: 1.5,
-    font-size: 16,
-    color: map-get($colors, black),
-    font-weight: 400,
-);
-
 $susy: (
     global-box-sizing: border-box,
     columns: 12,
@@ -105,15 +72,14 @@ $susy: (
 );
 
 $breakpoints: (
-    phone: 0px 481px,
-    tablet: 481px,
+    phone: max-width 480px,
+    tablet: 480px,
     window: 960px,
 );
 
-
-// 
+//
 // Site variables
-// 
+//
 $container-width: 960px;
 $sidebar-col-width: 3;
 $article-page-width:  600px;

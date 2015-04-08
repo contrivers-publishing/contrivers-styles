@@ -1,5 +1,0 @@
-
-# Contrivers' Review Visual Styles
-
-
-

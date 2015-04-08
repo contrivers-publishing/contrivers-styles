@@ -6,7 +6,7 @@ name: layout-footer
 ---
 
 ```html_example
-<footer class="contrivers-footer"> 
+<footer class="contrivers-footer">
 
     <ul class="footer-nav">
         <li class='footer-nav-item'><a href=''>Masthead</a></li>
@@ -16,7 +16,7 @@ name: layout-footer
     <ul class="copyright">
         <li>
             <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.contrivers.org"
-            property="cc:attributionName" rel="cc:attributionURL">&copy; 2014 Contrivers' Review</a> 
+            property="cc:attributionName" rel="cc:attributionURL">&copy; 2014 Contrivers' Review</a>
             under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons
             Attribution-NonCommercial-NoDerivatives 4.0 International License </a>.
         </li>
@@ -26,9 +26,9 @@ name: layout-footer
         </li>
 
         <li>
-            Contrivers' Review is a Python app built (mostly) with <a href='https://github.com/mitsuhiko/flask'>Flask</a>, 
-            <a href='http://www.sqlalchemy.org/'>SQLAlchemy</a>, <a href='http://sass-lang.com/'>Sass</a>, and other open 
-            source libraries. The code for this site is <a href='http://www.github.com/lmergner/contrivers/'>available at 
+            Contrivers' Review is a Python app built (mostly) with <a href='https://github.com/mitsuhiko/flask'>Flask</a>,
+            <a href='http://www.sqlalchemy.org/'>SQLAlchemy</a>, <a href='http://sass-lang.com/'>Sass</a>, and other open
+            source libraries. The code for this site is <a href='http://www.github.com/lmergner/contrivers/'>available at
             Github</a>.
         </li>
         </ul>
@@ -44,8 +44,7 @@ name: layout-footer
 }
 
 
-.contrivers-footer { 
-    // @include bleed(0 gutter() 0 gutter());
+.contrivers-footer {
     @include box-shadow;
     @include rhythm-padding;
     @include set-font(serif, delta, white);
@@ -54,23 +53,18 @@ name: layout-footer
     border-top: 2px solid color(gray);
     clear: both;
     min-height: 50px;
-    a { 
-        @include link-colors(color(white), $visited: color(white)); 
+    p { @include set-font(serif, delta, white); }
+    a {
+        @include link-colors(color(white), $visited: color(white));
     }
-    .copyright { 
+    .copyright {
         @include footer-grid(last);
-        li { @include trailer(); }
+        li {
+          @include trailer();
+        }
     }
     .footer-nav {
         @include footer-grid(first);
         @include trailer;
-        // ul {
-        //     @include breakpoint(map-get($breakpoints, tablet)) {
-        //         @include span(3);
-        //     }
-        // }
-    }
-    @include breakpoint(map-get($breakpoints, window)) {
-        // @include bleed-x(300px);
     }
 }

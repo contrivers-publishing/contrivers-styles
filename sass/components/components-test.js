@@ -1,4 +1,3 @@
-casper.start('http://localhost:9001/styleguide/');
 
 // Blocks
 casper.thenOpen('http://localhost:9001/styleguide/components_-_blocks.html').

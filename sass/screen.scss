@@ -6,16 +6,22 @@
 @import 'susy';
 @import 'breakpoint';
 
-@import 'global/variables';
-@import 'global/typography';
-@import 'global/**/*';
-@import 'base/**/*';
+// http://sass-guidelin.es/#main-file
+
+
+
+@import 'base/html';
+@import 'base/variables';
+@import 'base/typography';
+
+@import 'utils/functions';
+@import 'utils/mixins/**/*';
+@import 'utils/extends';
+
 @import 'components/**/*';
 @import 'layout/**/*';
+@import 'pages/**/*';
+@import 'themes/**/*';
 
-// 3rd party libs
-@import 'contrib/responsive-nav/responsive-nav';
-@import 'contrib/eq.js/eq'; 
-
-// Full size examples for hologram
-@import 'examples/**/*';
+@import 'vendors/bigfoot/bigfoot';
+@import 'vendors/responsive-nav/responsive-nav';

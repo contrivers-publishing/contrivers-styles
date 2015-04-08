@@ -1,4 +1,4 @@
-/*doc 
+/*doc
 ---
 title: Support
 category: Layout - Support
@@ -49,7 +49,7 @@ money goes to paying writers a fair compensation for their efforts.
 <div id="mce-responses" class="clear">
 <div class="response" id="mce-error-response" style="display:none"></div>
 <div class="response" id="mce-success-response" style="display:none"></div>
-</div>    
+</div>
 <div class="clear form-ctrl-group mc-field-group">
 <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
 </div>
@@ -76,14 +76,16 @@ money goes to paying writers a fair compensation for their efforts.
     }
 
     input[type=email] {
-        text-align: center;
+        text-align: left;
         width: 100%;
+        padding-left: 5px;
     }
 
     input[type=submit] {
         @include background-transition(gray);
         color: color(white);
-        width: 100%;
+        padding: 0 1em;
+        // width: 100%;
     }
 
     .mc-field-group {
@@ -110,7 +112,7 @@ money goes to paying writers a fair compensation for their efforts.
 
     input[type='submit'],
     button[type='submit'] {
-        @include make-button(secondary, black);
+        @include make-button(secondary, 'black');
         @include title($responsive: false);
         background: transparent;
         width: 100%;
@@ -118,7 +120,8 @@ money goes to paying writers a fair compensation for their efforts.
         text-align: center;
         margin: 0 auto;
         padding: inherit;
-        &:hover{
+
+        &:hover {
             text-decoration: underline;
         }
     }
@@ -131,6 +134,7 @@ money goes to paying writers a fair compensation for their efforts.
         border: $default-border;
         text-align: center;
         padding: 0.5em 0;
+
         a {
             @include unstyled-link;
             display: block;
@@ -138,8 +142,8 @@ money goes to paying writers a fair compensation for their efforts.
         }
 
         @include breakpoint(map-get($breakpoints, phone)) {
-            @include full;   
-            margin-top: rhythm(0.5);;
+            @include full;
+            margin-top: rhythm(0.5);
             margin-bottom: rhythm(0.5);
         }
 

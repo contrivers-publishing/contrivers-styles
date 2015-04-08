@@ -1,4 +1,3 @@
-casper.start('http://localhost:9001/styleguide/');
 
 casper.thenOpen('http://localhost:9001/styleguide/layout_-_articles.html').
 	then(function() {
