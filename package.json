@@ -1,0 +1,27 @@
+{
+  "name": "contrivers-styles",
+  "private": true,
+  "author": "Luke Thomas Mergner <lmergner@gmail.com>",
+  "version": "0.0.3",
+  "description": "Sass styles for http://www.contrivers.org",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lmergner/contrivers-styles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lmergner/contrivers-styles/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^3.8.0"
+  },
+  "homepage": "https://github.com/lmergner/contrivers-styles#readme",
+  "keywords": [
+    "sass",
+    "css"
+  ]
+}
