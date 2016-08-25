@@ -1,32 +1,27 @@
 {
-  "name": "contrivers-sass",
+  "name": "contrivers-styles",
   "private": true,
   "author": "Luke Thomas Mergner <lmergner@gmail.com>",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Sass styles for http://www.contrivers.org",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lmergner/contrivers-sass"
+    "url": "git+https://github.com/lmergner/contrivers-styles.git"
   },
   "bugs": {
-      "url": "https://github.com/lmergner/contrivers-sass/issues"
+    "url": "https://github.com/lmergner/contrivers-styles/issues"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
   "devDependencies": {
-    "bower": "^1.3.12",
-    "grunt": "^0.4.5",
-    "grunt-phantomcss": "git://github.com/micahgodbolt/grunt-phantomcss.git",
-    "grunt-aws-s3": "^0.12.3",
-    "grunt-bower-task": "^0.4.0",
-    "grunt-contrib-compass": "^1.0.1",
-    "grunt-contrib-connect": "^0.8.0",
-    "grunt-contrib-uglify": "^0.6.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-hologram": "0.0.4",
-    "grunt-shell": "^1.1.1"
-  }
+    "node-sass": "^3.8.0"
+  },
+  "homepage": "https://github.com/lmergner/contrivers-styles#readme",
+  "keywords": [
+    "sass",
+    "css"
+  ]
 }
